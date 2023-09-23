@@ -13,6 +13,9 @@ import useSound from 'use-sound';
 import notificationSound from '../audio/notification.mp3';
 import sendingSound from '../audio/sending.mp3';
 
+// import image from '../../public/image/1.jpeg'
+import image1 from './images/1.jpeg'
+
 const Messenger = () => {
 
  const [notificationSPlay] = useSound(notificationSound);   
@@ -23,7 +26,9 @@ const Messenger = () => {
 
 
  const {friends,message,mesageSendSuccess,message_get_success,themeMood,new_user_add} = useSelector(state => state.messenger );
+ console.log("line:100", friends);
  const {myInfo} = useSelector(state => state.auth);
+ console.log("line:200", myInfo.image);
 
  const [currentfriend, setCurrentFriend] = useState('');
  const [newMessage, setNewMessage] = useState('');
@@ -323,7 +328,8 @@ useEffect(() => {
                <div className='top'>
                     <div className='image-name'>
                          <div className='image'>
-                              <img src={`./image/${myInfo.image}`} alt='' />
+                              {/* <img src={image1} alt='' /> */}
+                              <img src={`../../public/image/${myInfo.image}`} alt='' />
 
                          </div>
                          <div className='name'>

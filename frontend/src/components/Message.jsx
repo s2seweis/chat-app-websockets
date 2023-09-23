@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { FaRegCheckCircle } from "react-icons/fa";
 
 const Message = ({message,currentfriend,scrollRef,typingMessage}) => {
+     console.log("line:1", currentfriend);
      const {myInfo} = useSelector(state=>state.auth);
   return (
        <>
