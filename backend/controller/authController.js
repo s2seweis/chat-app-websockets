@@ -74,7 +74,10 @@ module.exports.userRegister = (req, res) => {
           // const newPath =`../../../frontend/public/image${files.image.originalFilename}`;
           // working !!!
           // const newPath = __dirname + `/controller${files.image.originalFilename}`;
-          const newPath = `backend/controller/image/${files.image.originalFilename}`;
+          // working !!!
+          // const newPath = `backend/controller/image/${files.image.originalFilename}`;
+          // const newPath = `backend/${files.image.originalFilename}`;
+          const newPath = `frontend/public/image/${files.image.originalFilename}`;
           console.log("line:500", newPath);
           // #
           // const newPath =`../controller/image/${files.image.originalFilename}`;

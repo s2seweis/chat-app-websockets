@@ -13,8 +13,7 @@ import useSound from 'use-sound';
 import notificationSound from '../audio/notification.mp3';
 import sendingSound from '../audio/sending.mp3';
 
-// import image from '../../public/image/1.jpeg'
-import image1 from './images/1.jpeg'
+import image1 from '../../src/image/292653.jpeg'
 
 const Messenger = () => {
 
@@ -328,8 +327,11 @@ useEffect(() => {
                <div className='top'>
                     <div className='image-name'>
                          <div className='image'>
-                              {/* <img src={image1} alt='' /> */}
-                              <img src={`../../public/image/${myInfo.image}`} alt='' />
+                         <img src={`./image/${myInfo.image}`} alt='' />
+
+
+
+                              
 
                          </div>
                          <div className='name'>
