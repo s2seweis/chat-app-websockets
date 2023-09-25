@@ -75,16 +75,28 @@
                      }
                  }
              }
+
+
+        
               
          }
+
+         .col-4{
+            display: none; 
+         }
+
+         .col-8 {
+            width: 100%;
+         }
+
          #dot{
              display: none;
          }
          #dot:checked ~ .row .col-4{
-             display: none;
+             display: block;
          }
          #dot:checked ~ .row .col-8{
-             width: 100%;
+             width: 66%;
          }
          #dot:checked ~ .row .col-8 .message-show .my-message .my-text{
              width: 500px;

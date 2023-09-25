@@ -1,6 +1,10 @@
 import React from 'react';
 import { FaCaretSquareDown,FaEdit,FaSistrix } from "react-icons/fa";
 
+// import 'bootstrap/dist/css/bootstrap.min.css';
+
+import Button from 'react-bootstrap/Button';
+
 const FriendInfo = ({currentfriend,activeUser,message}) => {
   return (
        <div className='friend-info'>
@@ -36,6 +40,9 @@ const FriendInfo = ({currentfriend,activeUser,message}) => {
           <h3>Shared Media </h3>
         <label htmlFor='gallery'> <FaCaretSquareDown/> </label> 
      </div>
+
+      <Button variant='danger' >Test</Button>
+
      </div>
  
      <div className='gallery'>

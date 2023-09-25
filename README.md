@@ -16,6 +16,9 @@ node version: 16 for the front end
 Extension for the Project:
 - Change some design of the user interface with Adobe XD or Figma
 - Add user roles to it
+- Admin Page
+- User Settings Page
 - Each user should have his unique profile
+- Responsive Design/ Left & Right menu 
 
  
