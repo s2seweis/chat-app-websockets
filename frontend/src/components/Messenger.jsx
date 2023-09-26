@@ -44,9 +44,11 @@ const Messenger = () => {
   console.log ('line:200', myInfo.image);
 
   const [currentfriend, setCurrentFriend] = useState ('');
+  console.log("line:1", currentfriend);
   const [newMessage, setNewMessage] = useState ('');
 
   const [activeUser, setActiveUser] = useState ([]);
+  console.log("line:2". activeUser);
   const [socketMessage, setSocketMessage] = useState ('');
   const [typingMessage, setTypingMessage] = useState ('');
 
@@ -339,10 +341,9 @@ const Messenger = () => {
       <div className="row">
 
         <input type="checkbox" id="dot2" />
-        <div className="col-3">
+                {/* ### */}
 
-          {/* <input type="checkbox" id="dot2" />
-     <div style={{color:"black", background:"red"}} className='box'>Test1000</div> */}
+        <div style={{display: ''}} className="col-3">
 
           <div className="left-side">
 
@@ -364,7 +365,6 @@ const Messenger = () => {
                 <div className="icon">
                   <FaEdit />
                 </div>
-            
 
                 <div className="icons">
                   <label htmlFor="dot2"> <FaEdit /> </label>
@@ -415,12 +415,17 @@ const Messenger = () => {
               </div>
             </div>
 
-            {/* <div className='active-friends'>
-     {
-        activeUser && activeUser.length > 0 ? activeUser.map(u =>  <ActiveFriend setCurrentFriend = {setCurrentFriend} user={u} />) : ''  
-     }
-                        
-               </div> */}
+            <div className="active-friends">
+              {activeUser && activeUser.length > 0
+                ? activeUser.map (u => (
+                    <ActiveFriend
+                      setCurrentFriend={setCurrentFriend}
+                      user={u}
+                    />
+                  ))
+                : ''}
+
+            </div>
 
             <div className="friends">
               {friends && friends.length > 0
@@ -447,8 +452,9 @@ const Messenger = () => {
           </div>
 
         </div>
+        
 
-        {currentfriend
+        {/* {currentfriend
           ? <RightSide
               currentfriend={currentfriend}
               inputHendle={inputHendle}
@@ -461,7 +467,7 @@ const Messenger = () => {
               activeUser={activeUser}
               typingMessage={typingMessage}
             />
-          : 'Please Select your Friend'}
+          : 'Please Select your Friend'}  */}
 
       </div>
 

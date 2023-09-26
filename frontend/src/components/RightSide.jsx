@@ -95,13 +95,13 @@ const RightSide = props => {
               </div>
             </div>
 
-            <div className="col-4">
+            {/* <div className="col-4">
               <FriendInfo
                 message={message}
                 currentfriend={currentfriend}
                 activeUser={activeUser}
               />
-            </div>
+            </div> */}
 
           </div>
         </div>

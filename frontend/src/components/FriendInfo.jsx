@@ -27,7 +27,7 @@ const FriendInfo = ({currentfriend,activeUser,message}) => {
 
      <div className='others'>
      <div className='custom-chat'>
-          <h3>Coustomise Chat </h3>
+          <h3>Customize Chat </h3>
           <FaCaretSquareDown/>
      </div>
 
