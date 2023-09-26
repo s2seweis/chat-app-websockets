@@ -124,3 +124,26 @@
          }
      }
  }
+
+ .col-3{
+    display: none;
+ }
+
+
+ #dot2:checked + .col-3{
+    display: block;
+ }
+
+//  #dot2:checked + .col-3{
+//     display: none;
+//  }
+
+
+
+//  #dot2:checked + .col-9{
+//     width: 100%;
+//  }
+
+#dot2:checked + .col-9{
+    // width: 100%;
+}

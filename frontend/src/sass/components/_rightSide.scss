@@ -1,4 +1,14 @@
+#dot2:checked + .col-9{
+    width: 75%;
+}
+
+#dot2 {
+    display: none;
+}
+
+
 .col-9{
+    width: 100%;
      .right-side{
          height: 100%;
          .row{
@@ -106,3 +116,7 @@
          }
      }
  }
+
+
+
+
