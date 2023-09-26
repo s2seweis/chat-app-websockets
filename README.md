@@ -1,24 +1,28 @@
-npm run:
+# First React Chat Application/ Too much to fix
 
-list of commande ...
+# Commands
+- npm run
+list of commands ...
 
-server:
+- server:
 nodemon backend/server.js
 
-client:
+- client:
 npm start --prefix frontend 
 
-Run backend & frontend at the same time with: concurrently
+- Run backend & frontend at the same time: (Concurrently)
 "concurrently \" npm run server\" \" npm run client \""
 
-node version: 16 for the front end
+The Frontend needs node version: 16 
 
-Extension for the Project:
+# Extension for the Project:
 - Change some design of the user interface with Adobe XD or Figma
+- Make it Responsive 
 - Add user roles to it
-- Admin Page
-- User Settings Page
-- Each user should have his unique profile
-- Responsive Design/ Left & Right menu 
+- Add Admin Page
+- Unique User Page 
 
+
+-> This Application has plenty of problmens
+-> Moving forward to an better starter, because I have to save some time 
  
