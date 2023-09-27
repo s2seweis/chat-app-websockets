@@ -57,7 +57,8 @@ const Messenger = () => {
   const [typingMessage, setTypingMessage] = useState('');
 
   useEffect(() => {
-    socket.current = io('ws://localhost:8000');
+    // socket.current = io('ws://localhost:8000');
+    socket.current = io('ws://localhost:5000');
     socket.current.on('getMessage', data => {
       setSocketMessage(data);
     });
@@ -437,17 +438,13 @@ const Messenger = () => {
               </div>
             </div>
 
-            <div className="active-friends">
-              {activeUser && activeUser.length > 0
-                ? activeUser.map(u => (
-                  <ActiveFriend
-                    setCurrentFriend={setCurrentFriend}
-                    // user={u}
-                  />
-                ))
-                : ''}
-
-            </div>
+               {/* <div className='active-friends'>
+     {
+        activeUser && activeUser.length > 0 ? activeUser.map(u =>  <ActiveFriend setCurrentFriend = {setCurrentFriend} user={u} />) : ''  
+     }
+                        
+               </div> */}
+           
             {/* ### - stays */}
             <div className="friends">
               {friends && friends.length > 0
