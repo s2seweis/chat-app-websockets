@@ -148,3 +148,8 @@
 #dot2:checked + .col-9{
     // width: 100%;
 }
+
+
+#dot3:checked + .left-side {
+    display: none;
+}

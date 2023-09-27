@@ -341,7 +341,7 @@ const Messenger = () => {
     console.log('line:800', props);
     console.log('line:801', props._id);
     setCurrentFriend(props._id);
-    navigate(`/guardian/${props._id}`);
+    // navigate(`/guardian/${props._id}`);
     // Add your logic for function 2 here
   };
 
@@ -357,6 +357,7 @@ const Messenger = () => {
         }}
       />
 
+      {/* <input type="checkbox" id="dot3" /> */}
       <div className="row">
 
         <input type="checkbox" id="dot2" />
@@ -364,6 +365,8 @@ const Messenger = () => {
 
         <div style={{ display: '' }} className="col-3">
 
+      {/* <input type="checkbox" id="dot3" /> */}
+      <input type="checkbox" id="dot3" />
           <div className="left-side">
 
             <div className="top">
@@ -451,8 +454,8 @@ const Messenger = () => {
                 ? friends.map(fd => (
                   <div
                     onClick={() => {
-                      // setCurrentFriend(fd.fndInfo);
-                      function2(fd.fndInfo);
+                      setCurrentFriend(fd.fndInfo);
+                      // function2(fd.fndInfo);
                     }}
                     className={
                       currentfriend._id === fd.fndInfo._id
@@ -478,7 +481,7 @@ const Messenger = () => {
         </div>
 
 
-        {/* {currentfriend
+        {currentfriend
           ? <RightSide
               currentfriend={currentfriend}
               inputHendle={inputHendle}
@@ -491,7 +494,7 @@ const Messenger = () => {
               activeUser={activeUser}
               typingMessage={typingMessage}
             />
-          : 'Please Select your Friend'}  */}
+          : 'Please Select your Friend'} 
 
       </div>
 
