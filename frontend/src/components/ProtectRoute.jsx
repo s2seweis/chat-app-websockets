@@ -1,14 +1,23 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { Navigate } from 'react-router-dom';
+import { Outlet, Navigate } from 'react-router-dom'
 
 const ProtectRoute = ({children}) => {
      
 
      const {authenticate} = useSelector(state=>state.auth);
-     console.log("line:600", authenticate);
-     return authenticate ? children : <Navigate to="/messenger/login" />
 
+     console.log("line:600", authenticate);
+     
+     // return authenticate ? children : <Navigate to="/messenger/login" />
+
+     return(
+          authenticate ? <Outlet/> 
+          : <Navigate to="/messenger/login"/>
+          // : <Outlet/> 
+      )
+     
+  
 
  
 };
