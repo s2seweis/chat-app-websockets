@@ -60,7 +60,7 @@ const Login = () => {
                 
 
                <div className='form-group'>
-                    <label htmlFor='email'>Email</label>
+                    <label style={{color:"black"}} htmlFor='email'>Email</label>
                <input type="email" onChange={inputHendle} name="email" value={state.email} className='form-control' placeholder='Email' id='email' /> 
                </div>
 
@@ -76,7 +76,7 @@ const Login = () => {
 
 
                <div className='form-group'>
-     <span><Link to="/messenger/register"> Don't have any Account </Link></span>
+     <span style={{color:"black"}}><Link style={{color:"black"}} to="/messenger/register"> Don't have any Account </Link></span>
                </div>  
           </form> 
      </div>

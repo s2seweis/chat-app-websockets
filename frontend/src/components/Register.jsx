@@ -164,7 +164,7 @@ const Register = () => {
                   {loadImage ? <img src={loadImage} /> : ''}
                 </div>
                 <div className="file">
-                  <label htmlFor="image">Select Image</label>
+                  <label style={{color:"white"}} htmlFor="image">Select Image</label>
                   <input
                     type="file"
                     onChange={fileHendle}
@@ -183,7 +183,7 @@ const Register = () => {
 
             <div className="form-group">
               <span>
-                <Link to="/messenger/login"> Login Your Account </Link>
+                <Link style={{color:"black"}} to="/messenger/login"> Login Your Account </Link>
               </span>
             </div>
           </form>

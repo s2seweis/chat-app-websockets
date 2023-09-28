@@ -8,10 +8,11 @@
      justify-content: center;
      align-items: center;
      .card{
+        background-color: var(--border-color);
          .card-header{
              h3{
                  text-align: center;
-                 color: #fff;
+                 color: black;
              }
          }
          .card-body{
@@ -59,6 +60,7 @@
                              border-radius: 50px;
                              margin-left: 10px;
                              cursor: pointer;
+                            //  color: black;
                          }
                      }
                  }
