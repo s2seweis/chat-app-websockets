@@ -27,7 +27,7 @@ module.exports.userRegister = (req, res) => {
      } = fields;
 
      const {image} = files;
-     console.log("line:6", files.image.originalFilename);
+     console.log("line:6", files.image?.originalFilename);
      const error = [];
      console.log("line:7", error);
 
