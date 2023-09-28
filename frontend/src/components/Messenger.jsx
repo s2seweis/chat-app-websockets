@@ -1,5 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { FaEllipsisH, FaEdit, FaSistrix, FaSignOutAlt } from 'react-icons/fa';
+import { BsArrowLeftCircle } from 'react-icons/bs';
+import { AiFillCloseSquare, AiOutlineCloseCircle } from 'react-icons/ai';
 import ActiveFriend from './ActiveFriend';
 import Friends from './Friends';
 import RightSide from './RightSide';
@@ -25,6 +27,9 @@ import sendingSound from '../audio/sending.mp3';
 import image1 from '../../src/image/292653.jpeg';
 
 import { useNavigate } from 'react-router-dom';
+
+import Button from 'react-bootstrap/Button';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Messenger = () => {
   const [notificationSPlay] = useSound(notificationSound);
@@ -223,7 +228,8 @@ const Messenger = () => {
 
   useEffect(
     () => {
-      if (friends && friends.length > 0) setCurrentFriend(friends[0].fndInfo);
+      // if (friends && friends.length > 0) setCurrentFriend(friends[0].fndInfo);
+      // if (friends && friends.length > 0) setCurrentFriend(friends[0].fndInfo);
     },
     [friends]
   );
@@ -346,6 +352,20 @@ const Messenger = () => {
     // Add your logic for function 2 here
   };
 
+  // ###
+
+  const [buttonText, setButtonText] = useState('Hide Friends');
+
+  const [isActive, setIsActive] = useState(true);
+
+  const handleButtonClick = () => {
+    // Toggle the isActive state when the button is clicked
+    setIsActive(!isActive);
+    setButtonText('Show Friends');
+  };
+
+  // ###
+
   return (
     <div className={themeMood === 'dark' ? 'messenger theme' : 'messenger'}>
       <Toaster
@@ -364,10 +384,18 @@ const Messenger = () => {
         <input type="checkbox" id="dot2" />
         {/* ### */}
 
-        <div style={{ display: '' }} className="col-3">
 
-      {/* <input type="checkbox" id="dot3" /> */}
-      <input type="checkbox" id="dot3" />
+        {/* <div style={{ display: '' }} className="col-3"> */}
+        {/* <Button className='button-friends' onClick={handleButtonClick}>{buttonText}</Button> */}
+        {/* ### */}
+
+
+
+        {/* ### */}
+        <div style={{ display: '' }} className={isActive ? 'col-3' : 'col-3-off'}>
+
+          {/* <input type="checkbox" id="dot3" /> */}
+          {/* <input type="checkbox" id="dot3" /> */}
           <div className="left-side">
 
             <div className="top">
@@ -377,23 +405,16 @@ const Messenger = () => {
 
                 </div>
                 <div className="name">
+                  <h3>Welcome</h3>
                   <h3>{myInfo.userName} </h3>
                 </div>
               </div>
 
-              <div className="icons">
-                <div onClick={() => setHide(!hide)} className="icon">
+              <div style={{ margin: "auto" }} className="icons">
+                <div style={{ margin: "auto" }} onClick={() => setHide(!hide)} className="icon">
                   <FaEllipsisH />
                 </div>
-                <div className="icon">
-                  <FaEdit />
-                </div>
-
-                {/* <div className="icons">
-                  <label htmlFor="dot2"> <FaEdit /> </label>
-                </div> */}
-
-                <div className={hide ? 'theme_logout' : 'theme_logout show'}>
+                <div style={{ margin: "auto" }} className={hide ? 'theme_logout' : 'theme_logout show'}>
                   <h3>Dark Mode </h3>
                   <div className="on">
                     <label htmlFor="dark">ON</label>
@@ -422,8 +443,14 @@ const Messenger = () => {
                   </div>
 
                 </div>
-
               </div>
+
+              {/* <div style={{ margin: "auto 20px" }}  className="icons">
+                <div onClick={handleButtonClick} className='icon'>
+                <AiOutlineCloseCircle />
+                </div>
+              </div> */}
+
             </div>
 
             <div className="friend-search">
@@ -438,13 +465,13 @@ const Messenger = () => {
               </div>
             </div>
 
-               {/* <div className='active-friends'>
+            {/* <div className='active-friends'>
      {
         activeUser && activeUser.length > 0 ? activeUser.map(u =>  <ActiveFriend setCurrentFriend = {setCurrentFriend} user={u} />) : ''  
      }
                         
                </div> */}
-           
+
             {/* ### - stays */}
             <div className="friends">
               {friends && friends.length > 0
@@ -480,18 +507,21 @@ const Messenger = () => {
 
         {currentfriend
           ? <RightSide
-              currentfriend={currentfriend}
-              inputHendle={inputHendle}
-              newMessage={newMessage}
-              sendMessage={sendMessage}
-              message={message}
-              scrollRef={scrollRef}
-              emojiSend={emojiSend}
-              ImageSend={ImageSend}
-              activeUser={activeUser}
-              typingMessage={typingMessage}
-            />
-          : 'Please Select your Friend'} 
+            currentfriend={currentfriend}
+            inputHendle={inputHendle}
+            newMessage={newMessage}
+            sendMessage={sendMessage}
+            message={message}
+            scrollRef={scrollRef}
+            emojiSend={emojiSend}
+            ImageSend={ImageSend}
+            activeUser={activeUser}
+            typingMessage={typingMessage}
+            handleButtonClick={handleButtonClick}
+            buttonText={buttonText}
+
+          />
+          : 'Please Select your Friend'}
 
       </div>
 

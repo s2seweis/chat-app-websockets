@@ -69,7 +69,7 @@ const Friends = (props) => {
 
                </div>
 
-               <div className="mr-4" style={{  }}>
+               {/* <div className="mr-4" style={{  }}>
                     <Link 
                     to={`/guardian/${userId}`}
                     >
@@ -80,7 +80,7 @@ const Friends = (props) => {
                     </Link>
 
 
-               </div>
+               </div> */}
 
           </div>
      )

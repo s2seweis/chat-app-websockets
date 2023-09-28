@@ -4,6 +4,9 @@
      justify-content: start;
      height: 100%;
      flex-direction: column;
+     max-width: 500px;
+     min-width: 300px;
+     margin: auto;
      .image-name{
          display: flex;
          justify-content: center;
@@ -41,7 +44,7 @@
              flex-direction: row;
              justify-content: space-between;
              margin: 4px 0px;
-             color: var(--text-color);
+            //  color: var(--text-color);
              cursor: pointer;
              h3{
                  font-size: 14px;

@@ -1,9 +1,16 @@
-import React from 'react';
-import {FaPhoneAlt, FaVideo, FaRocketchat} from 'react-icons/fa';
-import {AiOutlineMenuUnfold, AiOutlineMenuFold} from 'react-icons/ai';
+import React, { useEffect, useState, useRef } from 'react';
+import { FaPhoneAlt, FaVideo, FaRocketchat } from 'react-icons/fa';
+import { AiOutlineMenuUnfold, AiOutlineMenuFold } from 'react-icons/ai';
+import { BsFillArrowLeftSquareFill } from 'react-icons/bs';
+import { VscFileSubmodule } from 'react-icons/vsc';
+import { } from 'react-icons/bs';
 import FriendInfo from './FriendInfo';
 import Message from './Message';
 import MessageSend from './MessageSend';
+import Button from 'react-bootstrap/Button';
+import { BsArrowLeftCircle } from 'react-icons/bs';
+
+
 
 const RightSide = props => {
   const {
@@ -17,7 +24,17 @@ const RightSide = props => {
     ImageSend,
     activeUser,
     typingMessage,
+    handleButtonClick,
+    buttonText
   } = props;
+
+  const [isActive1, setIsActive1] = useState(false);
+
+
+  const handleButtonClick1 = () => {
+    // Toggle the isActive state when the button is clicked
+    setIsActive1(!isActive1);
+  };
 
   return (
     <div>
@@ -32,10 +49,10 @@ const RightSide = props => {
                 <div className="header">
                   <div className="image-name">
 
-                  <div className='icons'>
-                    <div className="icon">
+                    <div className='icons'>
+                      {/* <div className="icon">
                       <label htmlFor="dot2"> <AiOutlineMenuUnfold /> </label>
-                    </div>
+                    </div> */}
                     </div>
 
                     <div className="image">
@@ -43,19 +60,22 @@ const RightSide = props => {
 
                       {activeUser &&
                         activeUser.length > 0 &&
-                        activeUser.some (u => u.userId === currentfriend._id)
+                        activeUser.some(u => u.userId === currentfriend._id)
                         ? <div className="active-icon" />
                         : ''}
 
                     </div>
                     <div className="name">
+                      <h3>Chat with</h3>
                       <h3>{currentfriend.userName} </h3>
 
                     </div>
-                    
-                  
 
-                    
+
+
+
+
+
                   </div>
 
                   <div className="icons">
@@ -67,8 +87,12 @@ const RightSide = props => {
                       <FaVideo />
                     </div> */}
 
+                    <div style={{ margin: "auto 20px" }} onClick={handleButtonClick} className="icon">
+                      <BsArrowLeftCircle />
+                    </div>
+
                     <div className="icon">
-                      <label htmlFor="dot"> <AiOutlineMenuFold /> </label>
+                      <label > <VscFileSubmodule onClick={handleButtonClick1} /> </label>
                     </div>
                     {/* <div className="icon">
                       <label htmlFor="dot2"> <FaRocketchat /> </label>
@@ -93,6 +117,22 @@ const RightSide = props => {
                 />
 
               </div>
+
+
+              <div style={{ display: '' }} className={isActive1 ? 'div-3' : 'div-3-off'}>
+
+              <div className="media">
+              <FriendInfo
+                message={message}
+                currentfriend={currentfriend}
+                activeUser={activeUser}
+                handleButtonClick1={handleButtonClick1}
+              />
+            </div>
+
+              </div>
+
+
             </div>
 
             {/* <div className="col-4">

@@ -9,7 +9,7 @@
          padding: 8px;
          font-size: 20px;
          cursor: pointer;
-         color: var(--icon-color);
+        //  color: var(--icon-color);
          label{
              display: flex;
              align-items: center;
@@ -39,6 +39,7 @@
          }
      }
      .hover-image{
+        background-color: lightgray;
          position: relative;
          &:hover{
              .add-image{

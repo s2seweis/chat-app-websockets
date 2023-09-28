@@ -150,13 +150,13 @@ const Register = () => {
               />
             </div>
 
-            <div className="form-group">
+            {/* <div className="form-group">
               <label htmlFor="confirmPassword">Pick a User Role:</label>
               <select  name="option"  onChange={inputHendle}>
                 <option value={"user"}>User</option>
                 <option value={"admin"}>Admin</option>
               </select>
-            </div>
+            </div> */}
 
             <div className="form-group">
               <div className="file-image">
