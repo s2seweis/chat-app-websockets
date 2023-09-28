@@ -31,6 +31,8 @@ import { useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 
+import ScrollToTop from "react-scroll-to-top";
+
 const Messenger = () => {
   const [notificationSPlay] = useSound(notificationSound);
   const [sendingSPlay] = useSound(sendingSound);
@@ -368,6 +370,7 @@ const Messenger = () => {
 
   return (
     <div className={themeMood === 'dark' ? 'messenger theme' : 'messenger'}>
+      
       <Toaster
         position={'top-right'}
         reverseOrder={false}

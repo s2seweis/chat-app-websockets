@@ -7,13 +7,14 @@ import Login from "./components/Login";
 import Messenger from "./components/Messenger";
 import ProtectRoute from "./components/ProtectRoute";
 import Register from "./components/Register";
-
+import ScrollToTop from "react-scroll-to-top";
 import Guardian from "./components/Guardian";
 
 function App() {
   return (
     <div>
       <BrowserRouter>
+      <ScrollToTop color="black" smooth />
     <Routes>
       <Route path="/messenger/login" element={<Login />} />
       <Route path="/messenger/register" element={<Register />} /> 
