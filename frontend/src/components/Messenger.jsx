@@ -31,7 +31,7 @@ import { useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 
-import ScrollToTop from "react-scroll-to-top";
+// import ScrollToTop from "react-scroll-to-top";
 
 const Messenger = () => {
   const [notificationSPlay] = useSound(notificationSound);
