@@ -80,21 +80,21 @@ Now, you can access the chat application in your web browser at `http://localhos
 
 ## Project Structure
 
-- `frontend`: Contains the React frontend code.
-- `backend`: Contains the Express server and Websockets implementation.
+1. `frontend`: Contains the React frontend code.
+2.  `backend`: Contains the Express server and Websockets implementation.
 
 ## Features
 
-- User authentication: Users can create accounts, log in, and log out.
-- Real-time messaging: Messages are delivered instantly using Websockets.
-- Chat rooms: Users can join different chat rooms and interact with other users in specific rooms.
-- Responsive design: The application is responsive and works well on both desktop and mobile devices.
+- **User authentication**: Users can create accounts, log in, and log out.
+- **Real-time messaging**: Messages are delivered instantly using Websockets.
+- **Chat rooms**: Users can join different chat rooms and interact with other users in specific rooms.
+- **Responsive design**: The application is responsive and works well on both desktop and mobile devices.
 
 ## Technologies Used
 
-- **Frontend**: React, React Router, Websockets (Socket.io), CSS (Sass)
-- **Backend**: Express.js, Websockets (Socket.io), MongoDB (Mongoose)
-- **Other Tools**: Axios (HTTP requests), JWT (JSON Web Tokens) for authentication
+1.  **Frontend**: React, React Router, Websockets (Socket.io), CSS (Sass)
+2.  **Backend**: Express.js, Websockets (Socket.io), MongoDB (Mongoose)
+3.  **Other Tools**: Axios (HTTP requests), JWT (JSON Web Tokens) for authentication
 
 # Eslint
 ***ESLint (find and fix Problems)***
