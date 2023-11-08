@@ -26,7 +26,9 @@
     "redux-thunk": "^2.4.1",
     "socket.io-client": "^4.4.1",
     "use-sound": "^4.0.1",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "react-scroll-to-top": "^3.0.0"
+
   },
   "scripts": {
     "start": "react-scripts start",

@@ -3,7 +3,8 @@
 This repository contains a real-time chat application built with React for the frontend, an Express server for the backend, and MongoDB as the database. The communication between the client and server is established through Websockets, enabling seamless and instant messaging between users.
 
 ## Redesign and lifting the state for the Frontend:
-Example for how to redesign it: https://github.com/aliakbarzohour/RealTime-Chat-App
+- Example for how to redesign it: https://github.com/aliakbarzohour/RealTime-Chat-App
+- Move socket.io into the express server if possible 
 
 ## Table of Contents
 - [Prerequisites](#prerequisites)
@@ -26,17 +27,25 @@ Before you begin, ensure you have the following installed on your system:
 
 1. Clone the repository:
 
-   ```bash
+   ```
    git clone https://github.com/s2seweis/chat-app-websockets.git
+   ```
+   ```
    cd chat-app
    ```
 
 2. Install dependencies for both frontend and backend:
 
-   ```bash
+   ```
    cd frontend
+   ```
+   ```
    npm install
+   ```
+   ```
    cd ../backend
+   ```
+   ```
    npm install
    ```
 
@@ -51,15 +60,19 @@ Before you begin, ensure you have the following installed on your system:
 
 4. Start the MongoDB server and the Express backend:
 
-   ```bash
+   ```
    cd backend
+   ```
+   ```
    npm start
    ```
 
 5. Start the React frontend:
 
-   ```bash
+   ```
    cd frontend
+   ```
+   ```
    npm start
    ```
 
@@ -93,6 +106,9 @@ npm install eslint eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-j
 ```
 npx eslint --init
 ```
+
+## Comment
+If you want using npm run dev for concurrently you have to adjust the dot.en configuration in the /backend/server.js file
 
 ## Contributing
 
