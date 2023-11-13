@@ -164,3 +164,15 @@
 .left-side-off{
     display: none;
 }
+
+.image-me{
+    border: 1px solid black;
+}
+
+.top{
+    background-color: #128c7e;
+}
+
+.search-input::placeholder {
+    color: black;
+  }

@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { FaEllipsisH, FaSistrix, FaSignOutAlt } from 'react-icons/fa';
+import { FaEllipsisV, FaSistrix, FaSignOutAlt } from 'react-icons/fa';
+import { AiOutlineCloseCircle } from 'react-icons/ai';
 // import ActiveFriend from './ActiveFriend';
 import Friends from './Friends';
 import RightSide from './RightSide';
@@ -21,6 +22,7 @@ import useSound from 'use-sound';
 import notificationSound from '../audio/notification.mp3';
 import sendingSound from '../audio/sending.mp3';
 import { useNavigate } from 'react-router-dom';
+import Navbar from './Navbar/Navbar';
 
 const Messenger = () => {
   const [notificationSPlay] = useSound(notificationSound);
@@ -344,9 +346,9 @@ const Messenger = () => {
 
   return (
     <div className={themeMood === 'dark' ? 'messenger theme' : 'messenger'}>
-      <div style={{ margin: "auto 20px" }} onClick={handleToggleMenu} className="icon">
-        <FaEllipsisH />
-      </div>
+      {/* <div style={{ margin: "10px 90%", width: "50px" }} onClick={handleToggleMenu} className="icon">
+        <FaEllipsisV />
+      </div> */}
 
       <Toaster
         position={'top-right'}
@@ -360,13 +362,13 @@ const Messenger = () => {
 
       <div className="row">
         <input type="checkbox" id="dot2" />
-        <div style={{ width: "fit-content", backgroundColor: "aliceblue", position: "fixed", marginLeft: "50%" }}>
+        <div style={{ width: "fit-content", backgroundColor: "#d7d7d7", position: "fixed", margin: "50px 0% 0px 60%" }}>
           <div onClick={handleToggleMenu} style={{ margin: "auto" }} className="icon">
-            {/* <FaEllipsisH /> */}
+            {/* <FaEllipsisV /> */}
           </div>
 
           {isMenuOpen && (
-            <div style={{ margin: "auto" }} >
+            <div style={{ margin: "auto", padding:"10px" }} >
               <h3>Dark Mode </h3>
               <div className="on">
                 <label htmlFor="dark">ON</label>
@@ -393,6 +395,10 @@ const Messenger = () => {
               <div onClick={logout} className="logout">
                 <FaSignOutAlt /> Logout
               </div>
+              <div onClick={handleToggleMenu} className="logout">
+                <AiOutlineCloseCircle /> 
+              </div>
+
 
             </div>
           )}
@@ -401,20 +407,28 @@ const Messenger = () => {
           {isLeftSideVisible && (
             <div className="left-side">
               <div className="top">
-                <div className="image-name">
+
+                <div className="image-name" style={{display:"flex", alignItems:"center", justifyContent:"space-between", padding:"10px"}}>
                   <div className="image">
-                    <img style={{ height: "50px", width: "50px", borderRadius: "25px" }} src={`./image/${myInfo.image}`} alt="" />
+                    <img className='image-me' style={{ height: "50px", width: "50px", borderRadius: "25px", margin:"1px" }} src={`./image/${myInfo.image}`} alt="" />
                   </div>
                   <div className="name">
                     {/* <h3>Welcome</h3> */}
-                    <h3>{myInfo.userName}</h3>
+                    <h3 style={{color:"white"}}>{myInfo.userName}</h3>
+                  </div>
+                  <div style={{width: "50px", color:"white" }} onClick={handleToggleMenu} className="icon">
+                    <FaEllipsisV />
                   </div>
                 </div>
+                <Navbar/>
+
+
               </div>
               <div className="friend-search">
-                <div className="search">
+                <div style={{marginLeft:"10px", marginBottom:"10px", marginTop:"10px"}} className="search">
                   <button> <FaSistrix /> </button>
                   <input
+                    style={{marginLeft:"10px", background:"#e4e4e4", color:"red"}}
                     onChange={search}
                     type="text"
                     placeholder="Search"
@@ -466,7 +480,7 @@ const Messenger = () => {
             isActive={isActive}
             handleToggleMenu={handleToggleMenu}
           />
-          : 'Please Select your Friend'}
+          : <div style={{margin:"25px 25px"}}>Please Select your Friend</div> }
 
       </div>
 

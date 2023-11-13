@@ -1,8 +1,11 @@
 .card {
     width: 375px;
     padding: 15px 20px;
-    background-color: #1c3f8fd4;
+    /* background-color: #1c3f8fd4; */
+    background-color: #128c7eea;
     box-shadow: 0px 8px 25px #f5f0f0;
+    border-radius: 30px;
+    margin: 0px 10px;
 }
 
 .form-group {
@@ -18,7 +21,8 @@
     color: black !important;
     /* background-color: #0a0e1585; */
     &::placeholder {
-        color: #fff;
+        /* color: #fff; */
+        color: black;
         font-weight: 400;
     }
 }

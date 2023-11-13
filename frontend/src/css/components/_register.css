@@ -1,14 +1,16 @@
 .register {
     width: 100%;
     height: 100vh;
-    background: url(https://img.freepik.com/premium-vector/seamless-pattern-abstract-background-with-futuristic-style-use-business-cover-banner_7505-1820.jpg);
+    /* background: url(https://dm0qx8t0i9gc9.cloudfront.net/watermarks/image/rDtN98Qoishumwih/vector-seamless-texture-with-abstract-flowers-endless-background-ethnic-sea_GJZn4Tcd_SB_PM.jpg); */
+    background: url(https://img.freepik.com/premium-vector/social-networks-dating-apps-vector-seamless-pattern_341076-469.jpg);
+    /* background-color: #fafafa; */
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .register .card {
-    background-color: var(--border-color);
+    /* background-color: var(--border-color); */
 }
 
 .register .card .card-header h3 {

@@ -53,13 +53,15 @@ const Friends = (props) => {
                               <div className='seen-unseen-icon'>
                                    {
                                         msgInfo.status === 'seen' ?
-                                             <img src={`./image/${fndInfo.image}`} alt='' /> : msgInfo.status === 'delivared' ? <div className='delivared'> <FaRegCheckCircle /> </div> : <div className='unseen'> </div>
+                                             <img src={`./assets/seen.png`} alt='seen' /> : msgInfo.status === 'delivared' ? <div className='delivared'> <FaRegCheckCircle /> </div> : <div className='unseen'> </div>
+                                             // <img src={`./image/${fndInfo.image}`} alt='' /> : msgInfo.status === 'delivared' ? <div className='delivared'> <FaRegCheckCircle /> </div> : <div className='unseen'> </div>
                                    }
 
                               </div> :
                               <div className='seen-unseen-icon'>
                                    {
-                                        msgInfo?.status !== undefined && msgInfo?.status !== 'seen' ? <div className='seen-icon'> </div> : ''
+                                        msgInfo?.status !== undefined && msgInfo?.status !== 'seen' ?  <img src={`./assets/unseen.png`} alt='seen' /> : ''
+                                        // msgInfo?.status !== undefined && msgInfo?.status !== 'seen' ? <div className='seen-icon'> </div> : ''
                                    }
 
 
