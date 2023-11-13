@@ -2,6 +2,11 @@
 
 This repository contains a real-time chat application built with React for the frontend, an Express server for the backend, and MongoDB as the database. The communication between the client and server is established through Websockets, enabling seamless and instant messaging between users.
 
+<div align="center">
+<img src="assets/chat-1.png" alt="Example Image">
+<img src="assets/chat-2.png" alt="Example Image">
+</div>
+
 ## Redesign and lifting the state for the Frontend:
 - Example for how to redesign it: https://github.com/aliakbarzohour/RealTime-Chat-App
 - Move socket.io into the express server if possible 
@@ -119,3 +124,7 @@ Contributions are welcome! Feel free to open issues or pull requests to improve 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 Happy chatting! 🚀
+
+<div align="center">
+<img src="assets/chat-3.png" alt="Example Image">
+</div>
