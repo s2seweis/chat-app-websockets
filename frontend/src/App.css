@@ -36,3 +36,16 @@
     transform: rotate(360deg);
   }
 }
+
+@import url('./css/base/_reset.css');
+@import url('./css/layout/_grid.css');
+@import url('./css/utils/_utils.css');
+
+@import url('./css/components/_activeFriend.css');
+@import url('./css/components/_friendInfo.css');
+@import url('./css/components/_friends.css');
+@import url('./css/components/_message.css');
+@import url('./css/components/_messageSend.css');
+@import url('./css/components/_messenger.css');
+@import url('./css/components/_register.css');
+@import url('./css/components/_rightSide.css');

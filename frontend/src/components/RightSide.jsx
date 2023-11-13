@@ -9,6 +9,8 @@ import Message from './Message';
 import MessageSend from './MessageSend';
 import Button from 'react-bootstrap/Button';
 import { BsArrowLeftCircle } from 'react-icons/bs';
+import { FaEllipsisH, FaSistrix, FaSignOutAlt } from 'react-icons/fa';
+
 
 
 
@@ -25,7 +27,9 @@ const RightSide = props => {
     activeUser,
     typingMessage,
     handleButtonClick,
-    buttonText
+    buttonText,
+    isActive,
+    handleToggleMenu
   } = props;
 
   const [isActive1, setIsActive1] = useState(false);
@@ -40,9 +44,12 @@ const RightSide = props => {
     <div>
 
       <input type="checkbox" id="dot2" />
+      
       <div className="col-9">
         <div className="right-side">
           <input type="checkbox" id="dot" />
+
+          {/* <div className={!isActive ? 'row' : 'row-off'}> */}
           <div className="row">
             <div className="col-8">
               <div className="message-send-show">
@@ -85,6 +92,10 @@ const RightSide = props => {
 
                     {/* <div className="icon">
                       <FaVideo />
+                    </div> */}
+
+                    {/* <div style={{ margin: "auto 20px" }} onClick={handleToggleMenu} className="icon">
+                      <FaEllipsisH />
                     </div> */}
 
                     <div style={{ margin: "auto 20px" }} onClick={handleButtonClick} className="icon">

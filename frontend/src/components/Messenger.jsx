@@ -1,8 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { FaEllipsisH, FaEdit, FaSistrix, FaSignOutAlt } from 'react-icons/fa';
-import { BsArrowLeftCircle } from 'react-icons/bs';
-import { AiFillCloseSquare, AiOutlineCloseCircle } from 'react-icons/ai';
-import ActiveFriend from './ActiveFriend';
+import { FaEllipsisH, FaSistrix, FaSignOutAlt } from 'react-icons/fa';
+// import ActiveFriend from './ActiveFriend';
 import Friends from './Friends';
 import RightSide from './RightSide';
 import { useDispatch, useSelector } from 'react-redux';
@@ -17,26 +15,16 @@ import {
   themeSet,
 } from '../store/actions/messengerAction';
 import { userLogout } from '../store/actions/authAction';
-
 import toast, { Toaster } from 'react-hot-toast';
 import { io } from 'socket.io-client';
 import useSound from 'use-sound';
 import notificationSound from '../audio/notification.mp3';
 import sendingSound from '../audio/sending.mp3';
-
-import image1 from '../../src/image/292653.jpeg';
-
 import { useNavigate } from 'react-router-dom';
-
-import Button from 'react-bootstrap/Button';
-// import 'bootstrap/dist/css/bootstrap.min.css';
-
-// import ScrollToTop from "react-scroll-to-top";
 
 const Messenger = () => {
   const [notificationSPlay] = useSound(notificationSound);
   const [sendingSPlay] = useSound(sendingSound);
-
   const scrollRef = useRef();
   const socket = useRef();
 
@@ -48,18 +36,11 @@ const Messenger = () => {
     themeMood,
     new_user_add,
   } = useSelector(state => state.messenger);
-  console.log('line:100', friends);
   const { myInfo } = useSelector(state => state.auth);
-  console.log('line:200', myInfo.image);
 
   const [currentfriend, setCurrentFriend] = useState('');
-  // ### need to pass down the current id
-  console.log("line:1", currentfriend);
-  console.log("line:1.1", currentfriend._id);
   const [newMessage, setNewMessage] = useState('');
-
   const [activeUser, setActiveUser] = useState([]);
-  console.log("line:2".activeUser);
   const [socketMessage, setSocketMessage] = useState('');
   const [typingMessage, setTypingMessage] = useState('');
 
@@ -231,7 +212,6 @@ const Messenger = () => {
   useEffect(
     () => {
       // if (friends && friends.length > 0) setCurrentFriend(friends[0].fndInfo);
-      // if (friends && friends.length > 0) setCurrentFriend(friends[0].fndInfo);
     },
     [friends]
   );
@@ -339,38 +319,35 @@ const Messenger = () => {
     }
   };
 
-  const navigate = useNavigate();
-
-  // const function2 = (props) => {
-  //   console.log('line:800', props);
-  //   // Add your logic for function 2 here
-  // };
-
-  const function2 = (props) => {
-    console.log('line:800', props);
-    console.log('line:801', props._id);
-    setCurrentFriend(props._id);
-    // navigate(`/guardian/${props._id}`);
-    // Add your logic for function 2 here
-  };
-
-  // ###
-
   const [buttonText, setButtonText] = useState('Hide Friends');
-
   const [isActive, setIsActive] = useState(true);
-
   const handleButtonClick = () => {
-    // Toggle the isActive state when the button is clicked
-    setIsActive(!isActive);
-    setButtonText('Show Friends');
+    setCurrentFriend('');
+    setLeftSideVisibility(!isLeftSideVisible);
   };
 
-  // ###
+  const [isMenuOpen, setMenuOpen] = useState(false);
+  const handleToggleMenu = () => {
+    setMenuOpen(!isMenuOpen);
+  };
+
+  const currentUserButton = (props) => {
+    setCurrentFriend(props.fndInfo);
+    setLeftSideVisibility(!isLeftSideVisible);
+  };
+
+  const [isLeftSideVisible, setLeftSideVisibility] = useState(true);
+
+  const toggleLeftSideVisibility = () => {
+    setLeftSideVisibility(!isLeftSideVisible);
+  };
 
   return (
     <div className={themeMood === 'dark' ? 'messenger theme' : 'messenger'}>
-      
+      <div style={{ margin: "auto 20px" }} onClick={handleToggleMenu} className="icon">
+        <FaEllipsisH />
+      </div>
+
       <Toaster
         position={'top-right'}
         reverseOrder={false}
@@ -381,133 +358,97 @@ const Messenger = () => {
         }}
       />
 
-      {/* <input type="checkbox" id="dot3" /> */}
       <div className="row">
-
         <input type="checkbox" id="dot2" />
-        {/* ### */}
-
-
-        {/* <div style={{ display: '' }} className="col-3"> */}
-        {/* <Button className='button-friends' onClick={handleButtonClick}>{buttonText}</Button> */}
-        {/* ### */}
-
-
-
-        {/* ### */}
-        <div style={{ display: '' }} className={isActive ? 'col-3' : 'col-3-off'}>
-
-          {/* <input type="checkbox" id="dot3" /> */}
-          {/* <input type="checkbox" id="dot3" /> */}
-          <div className="left-side">
-
-            <div className="top">
-              <div className="image-name">
-                <div className="image">
-                  <img src={`./image/${myInfo.image}`} alt="" />
-
-                </div>
-                <div className="name">
-                  <h3>Welcome</h3>
-                  <h3>{myInfo.userName} </h3>
-                </div>
-              </div>
-
-              <div style={{ margin: "auto" }} className="icons">
-                <div style={{ margin: "auto" }} onClick={() => setHide(!hide)} className="icon">
-                  <FaEllipsisH />
-                </div>
-                <div style={{ margin: "auto" }} className={hide ? 'theme_logout' : 'theme_logout show'}>
-                  <h3>Dark Mode </h3>
-                  <div className="on">
-                    <label htmlFor="dark">ON</label>
-                    <input
-                      onChange={e => dispatch(themeSet(e.target.value))}
-                      type="radio"
-                      value="dark"
-                      name="theme"
-                      id="dark"
-                    />
-                  </div>
-
-                  <div className="of">
-                    <label htmlFor="white">OFF</label>
-                    <input
-                      onChange={e => dispatch(themeSet(e.target.value))}
-                      type="radio"
-                      value="white"
-                      name="theme"
-                      id="white"
-                    />
-                  </div>
-
-                  <div onClick={logout} className="logout">
-                    <FaSignOutAlt /> Logout
-                  </div>
-
-                </div>
-              </div>
-
-              {/* <div style={{ margin: "auto 20px" }}  className="icons">
-                <div onClick={handleButtonClick} className='icon'>
-                <AiOutlineCloseCircle />
-                </div>
-              </div> */}
-
-            </div>
-
-            <div className="friend-search">
-              <div className="search">
-                <button> <FaSistrix /> </button>
-                <input
-                  onChange={search}
-                  type="text"
-                  placeholder="Search"
-                  className="form-control"
-                />
-              </div>
-            </div>
-
-            {/* <div className='active-friends'>
-     {
-        activeUser && activeUser.length > 0 ? activeUser.map(u =>  <ActiveFriend setCurrentFriend = {setCurrentFriend} user={u} />) : ''  
-     }
-                        
-               </div> */}
-
-            {/* ### - stays */}
-            <div className="friends">
-              {friends && friends.length > 0
-                ? friends.map(fd => (
-                  <div
-                    onClick={() => {
-                      setCurrentFriend(fd.fndInfo);
-                      // function2(fd.fndInfo);
-                    }}
-                    className={
-                      currentfriend._id === fd.fndInfo._id
-                        ? 'hover-friend active'
-                        : 'hover-friend'
-                    }
-                  >
-                    <Friends
-                      activeUser={activeUser}
-                      myId={myInfo.id}
-                      friend={fd}
-                      id={currentfriend._id}
-                    />
-                  </div>
-                ))
-                : 'No Friend'}
-
-            </div>
-            {/* ### */}
-
+        <div style={{ width: "fit-content", backgroundColor: "aliceblue", position: "fixed", marginLeft: "50%" }}>
+          <div onClick={handleToggleMenu} style={{ margin: "auto" }} className="icon">
+            {/* <FaEllipsisH /> */}
           </div>
 
+          {isMenuOpen && (
+            <div style={{ margin: "auto" }} >
+              <h3>Dark Mode </h3>
+              <div className="on">
+                <label htmlFor="dark">ON</label>
+                <input
+                  onChange={e => dispatch(themeSet(e.target.value))}
+                  type="radio"
+                  value="dark"
+                  name="theme"
+                  id="dark"
+                />
+              </div>
+
+              <div className="of">
+                <label htmlFor="white">OFF</label>
+                <input
+                  onChange={e => dispatch(themeSet(e.target.value))}
+                  type="radio"
+                  value="white"
+                  name="theme"
+                  id="white"
+                />
+              </div>
+
+              <div onClick={logout} className="logout">
+                <FaSignOutAlt /> Logout
+              </div>
+
+            </div>
+          )}
         </div>
+        <div>
+          {isLeftSideVisible && (
+            <div className="left-side">
+              <div className="top">
+                <div className="image-name">
+                  <div className="image">
+                    <img style={{ height: "50px", width: "50px", borderRadius: "25px" }} src={`./image/${myInfo.image}`} alt="" />
+                  </div>
+                  <div className="name">
+                    {/* <h3>Welcome</h3> */}
+                    <h3>{myInfo.userName}</h3>
+                  </div>
+                </div>
+              </div>
+              <div className="friend-search">
+                <div className="search">
+                  <button> <FaSistrix /> </button>
+                  <input
+                    onChange={search}
+                    type="text"
+                    placeholder="Search"
+                    className="form-control"
+                  />
+                </div>
+              </div>
 
-
+              <div className="friends">
+                {friends && friends.length > 0
+                  ? friends.map(fd => (
+                    <div
+                      onClick={() => {
+                        currentUserButton(fd);
+                      }}
+                      className={
+                        currentfriend._id === fd.fndInfo._id
+                          ? 'hover-friend active'
+                          : 'hover-friend'
+                      }
+                    >
+                      <Friends
+                        activeUser={activeUser}
+                        myId={myInfo.id}
+                        friend={fd}
+                        id={currentfriend._id}
+                      />
+                    </div>
+                  ))
+                  : 'No Friend'}
+              </div>
+            </div>
+          )}
+        </div>
         {currentfriend
           ? <RightSide
             currentfriend={currentfriend}
@@ -522,7 +463,8 @@ const Messenger = () => {
             typingMessage={typingMessage}
             handleButtonClick={handleButtonClick}
             buttonText={buttonText}
-
+            isActive={isActive}
+            handleToggleMenu={handleToggleMenu}
           />
           : 'Please Select your Friend'}
 

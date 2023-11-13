@@ -149,6 +149,7 @@ module.exports.messageGet = async(req,res) => {
 
 module.exports.ImageMessageSend = (req,res) => {
      const senderId = req.myId;
+     console.log("line:400", senderId);
      const form = formidable();
 
      form.parse(req, (err, fields, files) => {
@@ -158,12 +159,18 @@ module.exports.ImageMessageSend = (req,res) => {
               imageName 
           } = fields;
 
-          const newPath = `frontend/public/image/${imageName}`
+          // const newPath = `frontend/public/image/${imageName}`
           // const newPath = `frontend/public/image/${files.image.originalFilename}`;
+          // ### working at the moment on windows
+          const newPath = `../frontend/public/image/${imageName}`;
+          console.log("line:500", newPath);
           files.image.originalFilename = imageName;
+          console.log("line:600", files.image.originalFilename);
+          console.log("line:700", files.image.filepath);
 
           try{
                fs.copyFile(files.image.filepath, newPath, async (err)=>{
+                    console.log("line:800", err);
                     if(err){
                          res.status(500).json({
                               error : {

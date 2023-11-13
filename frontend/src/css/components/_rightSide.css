@@ -1,0 +1,127 @@
+#dot2:checked + .col-9 {
+    width: 75%;
+}
+
+#dot2 {
+    display: none;
+}
+
+.col-9 {
+    width: 100%;
+}
+
+.col-9 .right-side {
+    height: 100%;
+}
+
+.col-9 .right-side .row {
+    height: 100%;
+}
+
+.col-9 .right-side .row .col-8 {
+    transition: all .5s;
+}
+
+.col-9 .right-side .row .col-8 .message-send-show {
+    height: 100vh;
+    border-right: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.col-9 .right-side .row .col-8 .message-send-show .header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 10px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.col-9 .right-side .row .col-8 .message-send-show .header .image-name {
+    display: flex;
+}
+
+.col-9 .right-side .row .col-8 .message-send-show .header .image-name .image {
+    position: relative;
+    width: 40px;
+    height: 40px;
+}
+
+.col-9 .right-side .row .col-8 .message-send-show .header .image-name .image img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.col-9 .right-side .row .col-8 .message-send-show .header .image-name .image .active-icon {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgb(28, 212, 28);
+    right: 0px;
+    bottom: 0;
+}
+
+.col-9 .right-side .row .col-8 .message-send-show .header .image-name .name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.col-9 .right-side .row .col-8 .message-send-show .header .image-name .name h3 {
+    padding-left: 10px;
+    color: var(--text-color);
+}
+
+.col-9 .right-side .row .col-8 .message-send-show .header .icons {
+    display: flex;
+}
+
+.col-9 .right-side .row .col-8 .message-send-show .header .icons .icon {
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    margin-left: 8px;
+    border-radius: 24px;
+    color: var(--icon-color);
+    cursor: pointer;
+    background-color: var(--icon-bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.col-4 {
+    display: none;
+}
+
+#dot {
+    display: none;
+}
+
+#dot:checked ~ .row .col-4 {
+    display: block;
+}
+
+#dot:checked ~ .row .col-8 {
+    width: 66%;
+}
+
+#dot:checked ~ .row .col-8 .message-show .my-message .my-text {
+    /* width: 500px; */
+}
+
+#dot:checked ~ .row .col-8 .message-show .fd-message .fd-text {
+    /* width: 500px; */
+}
+
+.div-3 {
+    display: block;
+}
+
+.div-3-off {
+    display: none;
+}
