@@ -4,7 +4,7 @@ This repository contains a real-time chat application built with React for the f
 
 <div align="center">
 <img src="assets/chat-1.png" alt="Example Image">
-<img src="assets/chat-2.png" alt="Example Image">
+<img src="assets/chat-4.png" alt="Example Image">
 </div>
 
 ## Redesign and lifting the state for the Frontend:
