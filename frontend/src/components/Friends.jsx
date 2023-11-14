@@ -32,18 +32,20 @@ const Friends = (props) => {
 
                <div className='friend-name-seen'>
                     <div className='friend-name'>
-                         <h4 className={msgInfo?.senderId !== myId && msgInfo?.status !== undefined && msgInfo.status !== 'seen' ? 'unseen_message Fd_name ' : 'Fd_name'} >{fndInfo.userName}</h4>
+                         <h4 className={msgInfo?.senderId !== myId && msgInfo?.status !== undefined && msgInfo.status !== 'seen' ? 'unseen_message Fd_name ' : 'Fd_name'} >
+                              {/* {fndInfo.userName} */}
+                              </h4>
 
 
 
-                         <div className='msg-time'>
+                         <div className='msg-time' style={{display:"flex"}}>
                               {
-                                   msgInfo && msgInfo.senderId === myId ? <span>You </span> : <span className={msgInfo?.senderId !== myId && msgInfo?.status !== undefined && msgInfo.status !== 'seen' ? 'unseen_message ' : ''}> {fndInfo.userName + ' '} </span>
+                                   msgInfo && msgInfo.senderId === myId ? <div style={{marginRight:"10px"}}>You: </div> : <div style={{marginRight:"10px", minWidth:"100px"}} className={msgInfo?.senderId !== myId && msgInfo?.status !== undefined && msgInfo.status !== 'seen' ? 'unseen_message ' : ''}> {fndInfo.userName + ' '} </div>
                               }
                               {
-                                   msgInfo && msgInfo.message.text ? <span className={msgInfo?.senderId !== myId && msgInfo?.status !== undefined && msgInfo.status !== 'seen' ? 'unseen_message ' : ''}>{msgInfo.message.text.slice(0, 10)}</span> : msgInfo && msgInfo.message.image ? <span>Send A image </span> : <span>Connect You </span>
+                                   msgInfo && msgInfo.message.text ? <div style={{marginRight:"10px", minWidth:"150px"}} className={msgInfo?.senderId !== myId && msgInfo?.status !== undefined && msgInfo.status !== 'seen' ? 'unseen_message ' : ''}>{msgInfo.message.text.slice(0, 30)}</div> : msgInfo && msgInfo.message.image ? <div style={{marginRight:"10px", minWidth:"140px"}}>Send A image </div> : <div style={{marginRight:"10px"}}>Connect You </div>
                               }
-                              <span>{msgInfo ? moment(msgInfo.createdAt).startOf('mini').fromNow() : moment(fndInfo.createdAt).startOf('mini').fromNow()}</span>
+                              <div style={{marginRight:"10px"}}>{msgInfo ? moment(msgInfo.createdAt).startOf('mini').fromNow() : moment(fndInfo.createdAt).startOf('mini').fromNow()}</div>
 
                          </div>
                     </div>

@@ -18,8 +18,6 @@ This repository contains a real-time chat application built with React for the f
 - [Features](#features)
 - [Technologies Used](#technologies-used)
 - [Eslint](#eslint)
-- [Important](#important)
-- [Commands](#commands)
 
 ## Prerequisites
 
@@ -97,7 +95,7 @@ Now, you can access the chat application in your web browser at `http://localhos
 
 ## Technologies Used
 
-1.  **Frontend**: React, React Router, Websockets (Socket.io), CSS (Sass)
+1.  **Frontend**: React, React Router, Websockets (Socket.io), CSS or scss (Sass), node-sass not working with node v 21 at the moment
 2.  **Backend**: Express.js, Websockets (Socket.io), MongoDB (Mongoose)
 3.  **Other Tools**: Axios (HTTP requests), JWT (JSON Web Tokens) for authentication
 
