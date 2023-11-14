@@ -4,11 +4,7 @@ import { Outlet, Navigate } from 'react-router-dom'
 
 const ProtectRoute = ({children}) => {
      
-
-     const {authenticate} = useSelector(state=>state.auth);
-
-     console.log("line:600", authenticate);
-     
+     const {authenticate} = useSelector(state=>state.auth);     
      // return authenticate ? children : <Navigate to="/messenger/login" />
 
      return(
@@ -16,10 +12,6 @@ const ProtectRoute = ({children}) => {
           : <Navigate to="/messenger/login"/>
           // : <Outlet/> 
       )
-     
-  
-
- 
 };
 
 export default ProtectRoute;

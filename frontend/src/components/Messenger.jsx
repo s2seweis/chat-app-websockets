@@ -21,7 +21,6 @@ import { io } from 'socket.io-client';
 import useSound from 'use-sound';
 import notificationSound from '../audio/notification.mp3';
 import sendingSound from '../audio/sending.mp3';
-import { useNavigate } from 'react-router-dom';
 import Navbar from './Navbar/Navbar';
 
 const Messenger = () => {
@@ -29,6 +28,7 @@ const Messenger = () => {
   const [sendingSPlay] = useSound(sendingSound);
   const scrollRef = useRef();
   const socket = useRef();
+  const dispatch = useDispatch();
 
   const {
     friends,
@@ -202,7 +202,6 @@ const Messenger = () => {
     [mesageSendSuccess]
   );
 
-  const dispatch = useDispatch();
   useEffect(
     () => {
       dispatch(getFriends());
@@ -297,8 +296,6 @@ const Messenger = () => {
     }
   };
 
-  const [hide, setHide] = useState(true);
-
   const logout = () => {
     dispatch(userLogout());
     socket.current.emit('logout', myInfo.id);
@@ -321,8 +318,8 @@ const Messenger = () => {
     }
   };
 
-  const [buttonText, setButtonText] = useState('Hide Friends');
-  const [isActive, setIsActive] = useState(true);
+  const [isLeftSideVisible, setLeftSideVisibility] = useState(true);
+
   const handleButtonClick = () => {
     setCurrentFriend('');
     setLeftSideVisibility(!isLeftSideVisible);
@@ -338,18 +335,9 @@ const Messenger = () => {
     setLeftSideVisibility(!isLeftSideVisible);
   };
 
-  const [isLeftSideVisible, setLeftSideVisibility] = useState(true);
-
-  const toggleLeftSideVisibility = () => {
-    setLeftSideVisibility(!isLeftSideVisible);
-  };
-
   return (
     <div className={themeMood === 'dark' ? 'messenger theme' : 'messenger'}>
-      {/* <div style={{ margin: "10px 90%", width: "50px" }} onClick={handleToggleMenu} className="icon">
-        <FaEllipsisV />
-      </div> */}
-
+  
       <Toaster
         position={'top-right'}
         reverseOrder={false}
@@ -359,88 +347,85 @@ const Messenger = () => {
           },
         }}
       />
-
-      <div className="row">
-        <input type="checkbox" id="dot2" />
-        <div style={{ width: "fit-content", backgroundColor: "#d7d7d7", position: "fixed", margin: "50px 0% 0px 60%" }}>
-          <div onClick={handleToggleMenu} style={{ margin: "auto" }} className="icon">
-            {/* <FaEllipsisV /> */}
+  
+      <div className='row'>
+        <input type='checkbox' id='dot2' />
+        <div style={{ width: 'fit-content', backgroundColor: '#d7d7d7', position: 'fixed', margin: '50px 0% 0px 60%' }}>
+          <div onClick={handleToggleMenu} style={{ margin: 'auto' }} className='icon'>
           </div>
-
+  
           {isMenuOpen && (
-            <div style={{ margin: "auto", padding:"10px" }} >
+            <div style={{ margin: 'auto', padding: '10px' }} >
               <h3>Dark Mode </h3>
-              <div className="on">
-                <label htmlFor="dark">ON</label>
+              <div className='on'>
+                <label htmlFor='dark'>ON</label>
                 <input
                   onChange={e => dispatch(themeSet(e.target.value))}
-                  type="radio"
-                  value="dark"
-                  name="theme"
-                  id="dark"
+                  type='radio'
+                  value='dark'
+                  name='theme'
+                  id='dark'
                 />
               </div>
-
-              <div className="of">
-                <label htmlFor="white">OFF</label>
+  
+              <div className='of'>
+                <label htmlFor='white'>OFF</label>
                 <input
                   onChange={e => dispatch(themeSet(e.target.value))}
-                  type="radio"
-                  value="white"
-                  name="theme"
-                  id="white"
+                  type='radio'
+                  value='white'
+                  name='theme'
+                  id='white'
                 />
               </div>
-
-              <div onClick={logout} className="logout">
+  
+              <div onClick={logout} className='logout'>
                 <FaSignOutAlt /> Logout
               </div>
-              <div onClick={handleToggleMenu} className="logout">
-                <AiOutlineCloseCircle /> 
+              <div onClick={handleToggleMenu} className='logout'>
+                <AiOutlineCloseCircle />
               </div>
-
-
+  
             </div>
           )}
         </div>
         <div>
           {isLeftSideVisible && (
-            <div className="left-side">
-              <div className="top">
-
-                <div className="image-name" style={{display:"flex", alignItems:"center", justifyContent:"space-between", padding:"10px"}}>
-                  <div className="image">
-                    <img className='image-me' style={{ height: "50px", width: "50px", borderRadius: "25px", margin:"1px" }} src={`./image/${myInfo.image}`} alt="" />
+            <div className='left-side'>
+              <div className='top'>
+  
+                <div className='image-name' style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '10px' }}>
+                  <div className='image'>
+                    <img className='image-me' style={{ height: '50px', width: '50px', borderRadius: '25px', margin: '1px' }} src={`./image/${myInfo.image}`} alt='' />
                   </div>
-                  <div className="name">
+                  <div className='name'>
                     {/* <h3>Welcome</h3> */}
-                    <h3 style={{color:"white"}}>{myInfo.userName}</h3>
+                    <h3 style={{ color: 'white' }}>{myInfo.userName}</h3>
                   </div>
-                  <div style={{width: "50px", color:"white" }} onClick={handleToggleMenu} className="icon">
+                  <div style={{ width: '50px', color: 'white' }} onClick={handleToggleMenu} className='icon'>
                     <FaEllipsisV />
                   </div>
                 </div>
-                <Navbar/>
-
-
+                <Navbar />
+  
               </div>
-              <div className="friend-search">
-                <div style={{marginLeft:"10px", marginBottom:"10px", marginTop:"10px"}} className="search">
+              <div className='friend-search'>
+                <div style={{ marginLeft: '10px', marginBottom: '10px', marginTop: '10px' }} className='search'>
                   <button> <FaSistrix /> </button>
                   <input
-                    style={{marginLeft:"10px", background:"#e4e4e4", color:"red"}}
+                    style={{ marginLeft: '10px', background: '#e4e4e4', color: 'red' }}
                     onChange={search}
-                    type="text"
-                    placeholder="Search"
-                    className="form-control"
+                    type='text'
+                    placeholder='Search'
+                    className='form-control'
                   />
                 </div>
               </div>
-
-              <div className="friends">
+  
+              <div className='friends'>
                 {friends && friends.length > 0
                   ? friends.map(fd => (
-                    <div
+                    <div key={fd._id}
                       onClick={() => {
                         currentUserButton(fd);
                       }}
@@ -476,14 +461,12 @@ const Messenger = () => {
             activeUser={activeUser}
             typingMessage={typingMessage}
             handleButtonClick={handleButtonClick}
-            buttonText={buttonText}
-            isActive={isActive}
             handleToggleMenu={handleToggleMenu}
           />
-          : <div style={{margin:"25px 25px"}}>Please Select your Friend</div> }
-
+          : <div style={{ margin: '25px 25px' }}>Please Select your Friend</div>}
+  
       </div>
-
+  
     </div>
   );
 };

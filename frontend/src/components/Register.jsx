@@ -9,16 +9,12 @@ const Register = () => {
   const navigate = useNavigate ();
   const alert = useAlert ();
 
-  const {loading, authenticate, error, successMessage, myInfo} = useSelector (
+  const {authenticate, error, successMessage} = useSelector (
     state => state.auth
   );
-  console.log (myInfo);
 
   const dispatch = useDispatch ();
-
   const [option, setOption] = useState ("");
-  console.log("line:1", option);
-
   function handleChange (event) {
     setOption (event.target.value);
   }
@@ -31,7 +27,6 @@ const Register = () => {
     image: '',
     option: 'user',
   });
-  console.log ('line:2', state);
 
   const [loadImage, setLoadImage] = useState ('');
 
@@ -149,14 +144,6 @@ const Register = () => {
                 id="confirmPassword"
               />
             </div>
-
-            {/* <div className="form-group">
-              <label htmlFor="confirmPassword">Pick a User Role:</label>
-              <select  name="option"  onChange={inputHendle}>
-                <option value={"user"}>User</option>
-                <option value={"admin"}>Admin</option>
-              </select>
-            </div> */}
 
             <div className="form-group">
               <div className="file-image">

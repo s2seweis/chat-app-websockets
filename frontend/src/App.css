@@ -37,10 +37,10 @@
   }
 }
 
+/* transform the scss code to css */
 @import url('./css/base/_reset.css');
 @import url('./css/layout/_grid.css');
 @import url('./css/utils/_utils.css');
-
 @import url('./css/components/_activeFriend.css');
 @import url('./css/components/_friendInfo.css');
 @import url('./css/components/_friends.css');

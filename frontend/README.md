@@ -2,8 +2,14 @@
 
 This repository contains a real-time chat application built with React for the frontend, an Express server for the backend, and MongoDB as the database. The communication between the client and server is established through Websockets, enabling seamless and instant messaging between users.
 
+<div align="center">
+<img src="../assets/chat-1.png" alt="Example Image">
+<img src="../assets/chat-2.png" alt="Example Image">
+</div>
+
 ## Redesign and lifting the state for the Frontend:
-Example for how to redesign it: https://github.com/aliakbarzohour/RealTime-Chat-App
+- Example for how to redesign it: https://github.com/aliakbarzohour/RealTime-Chat-App
+- Move socket.io into the express server if possible 
 
 ## Table of Contents
 - [Prerequisites](#prerequisites)
@@ -12,8 +18,6 @@ Example for how to redesign it: https://github.com/aliakbarzohour/RealTime-Chat-
 - [Features](#features)
 - [Technologies Used](#technologies-used)
 - [Eslint](#eslint)
-- [Important](#important)
-- [Commands](#commands)
 
 ## Prerequisites
 
@@ -26,17 +30,25 @@ Before you begin, ensure you have the following installed on your system:
 
 1. Clone the repository:
 
-   ```bash
+   ```
    git clone https://github.com/s2seweis/chat-app-websockets.git
+   ```
+   ```
    cd chat-app
    ```
 
 2. Install dependencies for both frontend and backend:
 
-   ```bash
+   ```
    cd frontend
+   ```
+   ```
    npm install
+   ```
+   ```
    cd ../backend
+   ```
+   ```
    npm install
    ```
 
@@ -51,15 +63,19 @@ Before you begin, ensure you have the following installed on your system:
 
 4. Start the MongoDB server and the Express backend:
 
-   ```bash
+   ```
    cd backend
+   ```
+   ```
    npm start
    ```
 
 5. Start the React frontend:
 
-   ```bash
+   ```
    cd frontend
+   ```
+   ```
    npm start
    ```
 
@@ -67,21 +83,21 @@ Now, you can access the chat application in your web browser at `http://localhos
 
 ## Project Structure
 
-- `frontend`: Contains the React frontend code.
-- `backend`: Contains the Express server and Websockets implementation.
+1. `frontend`: Contains the React frontend code.
+2.  `backend`: Contains the Express server and Websockets implementation.
 
 ## Features
 
-- User authentication: Users can create accounts, log in, and log out.
-- Real-time messaging: Messages are delivered instantly using Websockets.
-- Chat rooms: Users can join different chat rooms and interact with other users in specific rooms.
-- Responsive design: The application is responsive and works well on both desktop and mobile devices.
+- **User authentication**: Users can create accounts, log in, and log out.
+- **Real-time messaging**: Messages are delivered instantly using Websockets.
+- **Chat rooms**: Users can join different chat rooms and interact with other users in specific rooms.
+- **Responsive design**: The application is responsive and works well on both desktop and mobile devices.
 
 ## Technologies Used
 
-- **Frontend**: React, React Router, Websockets (Socket.io), CSS (Sass)
-- **Backend**: Express.js, Websockets (Socket.io), MongoDB (Mongoose)
-- **Other Tools**: Axios (HTTP requests), JWT (JSON Web Tokens) for authentication
+1.  **Frontend**: React, React Router, Websockets (Socket.io), CSS or scss (Sass), node-sass not working with node v 21 at the moment
+2.  **Backend**: Express.js, Websockets (Socket.io), MongoDB (Mongoose)
+3.  **Other Tools**: Axios (HTTP requests), JWT (JSON Web Tokens) for authentication
 
 # Eslint
 ***ESLint (find and fix Problems)***
@@ -94,6 +110,9 @@ npm install eslint eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-j
 npx eslint --init
 ```
 
+## Comment
+If you want using npm run dev for concurrently you have to adjust the dot.en configuration in the /backend/server.js file
+
 ## Contributing
 
 Contributions are welcome! Feel free to open issues or pull requests to improve the application.
@@ -103,3 +122,7 @@ Contributions are welcome! Feel free to open issues or pull requests to improve 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 Happy chatting! 🚀
+
+<div align="center">
+<img src="../assets/chat-3.png" alt="Example Image">
+</div>

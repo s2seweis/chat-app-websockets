@@ -13,15 +13,15 @@ import alertTemplate from 'react-alert-template-basic';
 const options = {
   timeout : 5000,
   positions: positions.BOTTOM_CENTER,
-  transitions : transitions.SCALE
-}
+  transitions : transitions.SCALE,
+};
 
 ReactDOM.render(
-   <Provider store={store}>
-     <AlertProvider template={alertTemplate} {...options} >
-    <App />
+  <Provider store={store}>
+    <AlertProvider template={alertTemplate} {...options} >
+      <App />
     </AlertProvider>
-    </Provider>
+  </Provider>
   ,
-  document.getElementById('root')
+  document.getElementById('root'),
 ); 

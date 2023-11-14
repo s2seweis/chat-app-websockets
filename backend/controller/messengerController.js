@@ -3,7 +3,6 @@ const messageModel = require('../models/messageModel');
 const formidable = require('formidable');
 const fs = require('fs');
 
-
 const getLastMessage = async(myId, fdId) => {
      const msg = await messageModel.findOne({
           $or: [{
@@ -95,8 +94,7 @@ module.exports.messageUploadDB = async (req, res) =>{
                }
           })
      }
-
-     
+ 
 }
 module.exports.messageGet = async(req,res) => {
      const myId = req.myId;
@@ -127,9 +125,7 @@ module.exports.messageGet = async(req,res) => {
                     }]
                }]
           })
-          
-          // getAllMessage = getAllMessage.filter(m=>m.senderId === myId && m.reseverId === fdId || m.reseverId ===  myId && m.senderId === fdId );
-          
+                    
           res.status(200).json({
                success: true,
                message: getAllMessage
@@ -146,10 +142,8 @@ module.exports.messageGet = async(req,res) => {
       
 }
 
-
 module.exports.ImageMessageSend = (req,res) => {
      const senderId = req.myId;
-     console.log("line:400", senderId);
      const form = formidable();
 
      form.parse(req, (err, fields, files) => {
@@ -159,18 +153,11 @@ module.exports.ImageMessageSend = (req,res) => {
               imageName 
           } = fields;
 
-          // const newPath = `frontend/public/image/${imageName}`
-          // const newPath = `frontend/public/image/${files.image.originalFilename}`;
-          // ### working at the moment on windows
           const newPath = `../frontend/public/image/${imageName}`;
-          console.log("line:500", newPath);
           files.image.originalFilename = imageName;
-          console.log("line:600", files.image.originalFilename);
-          console.log("line:700", files.image.filepath);
 
           try{
                fs.copyFile(files.image.filepath, newPath, async (err)=>{
-                    console.log("line:800", err);
                     if(err){
                          res.status(500).json({
                               error : {
@@ -204,7 +191,6 @@ module.exports.ImageMessageSend = (req,res) => {
 
           }
 
-
      })
 }
 
@@ -226,7 +212,6 @@ module.exports.messageSeen = async (req,res) => {
           })
      })
 }
-
 
 module.exports.delivaredMessage = async (req,res) => {
      const messageId = req.body._id;
