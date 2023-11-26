@@ -37,6 +37,7 @@
     justify-content: space-between;
     padding: 12px 10px;
     border-bottom: 1px solid var(--border-color);
+    background-color: #128c7e;
 }
 
 .col-9 .right-side .row .col-8 .message-send-show .header .image-name {

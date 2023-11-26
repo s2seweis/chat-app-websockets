@@ -73,8 +73,8 @@ const RightSide = props => {
 
                     </div>
                     <div className="name">
-                      <h3>Chat with</h3>
-                      <h3>{currentfriend.userName} </h3>
+                      <h3 style={{color:"white"}}>Chat with:</h3>
+                      <h3 style={{color:"white"}}>{currentfriend.userName} </h3>
 
                     </div>
 

@@ -346,10 +346,6 @@ const Messenger = () => {
 
   return (
     <div className={themeMood === 'dark' ? 'messenger theme' : 'messenger'}>
-      {/* <div style={{ margin: "10px 90%", width: "50px" }} onClick={handleToggleMenu} className="icon">
-        <FaEllipsisV />
-      </div> */}
-
       <Toaster
         position={'top-right'}
         reverseOrder={false}
@@ -359,10 +355,9 @@ const Messenger = () => {
           },
         }}
       />
-
       <div className="row">
         <input type="checkbox" id="dot2" />
-        <div style={{ width: "fit-content", backgroundColor: "#d7d7d7", position: "fixed", margin: "50px 0% 0px 60%" }}>
+        <div style={{ width: "fit-content", backgroundColor: "#d9e0e0", position: "fixed", margin: "50px 0% 0px 60%", borderRadius:"15px" }}>
           <div onClick={handleToggleMenu} style={{ margin: "auto" }} className="icon">
             {/* <FaEllipsisV /> */}
           </div>
@@ -480,7 +475,7 @@ const Messenger = () => {
             isActive={isActive}
             handleToggleMenu={handleToggleMenu}
           />
-          : <div style={{margin:"25px 25px"}}>Please Select your Friend</div> }
+          : <div style={{margin:"25px 25px", textAlign:"center"}}>Please Select your Friend</div> }
 
       </div>
 
