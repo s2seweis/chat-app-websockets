@@ -11,12 +11,7 @@ const server = http.createServer(app);
 // Use CORS middleware for Express routes
 app.use(cors());
 
-const io = require('socket.io')(server, {
-  cors: {
-    origin: '*',
-    methods: ['GET', 'POST'],
-  },
-});
+const io = require('socket.io')(server);
 
 let users = [];
 
