@@ -57,5 +57,8 @@
     "npm": ">=8.19.9 <9.0.0",
     "node": ">=16.19.1 <18.0.0"
   },
-  "proxy": "http://localhost:5000/"
+  "proxy": "http://localhost:5000/",
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
+  }
 }
