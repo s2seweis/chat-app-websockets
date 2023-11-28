@@ -11,7 +11,12 @@ const server = http.createServer(app);
 // Use CORS middleware for Express routes
 app.use(cors());
 
-const io = require('socket.io')(server);
+const io = require('socket.io')(server, {
+  cors: {
+    origin: 'https://react-app-chat-c986801b6d65.herokuapp.com/',
+    methods: ['GET', 'POST'],
+  },
+});
 
 let users = [];
 
