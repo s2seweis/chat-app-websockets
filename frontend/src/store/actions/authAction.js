@@ -1,3 +1,4 @@
+/* eslint-disable */
 import axios from 'axios';
 import {REGISTER_FAIL,REGISTER_SUCCESS,USER_LOGIN_SUCCESS,USER_LOGIN_FAIL} from "../types/authType";
 
@@ -10,7 +11,7 @@ export const userRegister = (data) => {
                } 
           }
           try{
-               const response = await axios.post('/api/messenger/user-register',data,config);
+               const response = await axios.post('https://react-app-chat-c986801b6d65.herokuapp.com/api/messenger/user-register',data,config);
                localStorage.setItem('authToken',response.data.token);
 
                dispatch({
