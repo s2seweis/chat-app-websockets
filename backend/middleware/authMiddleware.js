@@ -9,7 +9,7 @@ module.exports.authMiddleware = async(req,res,next) => {
      }else{
           res.status(400).json({
                error:{
-                    errorMessage: ['Please Loing First']
+                    errorMessage: ['Please Loging First']
                }
           })
      } 
