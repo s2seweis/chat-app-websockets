@@ -12,7 +12,7 @@ app.use(cors());
 
 const io = require('socket.io')(server);
 
-io.use(cors());
+// io.use(cors());
 
 // const io = require ('socket.io') (server, {
 //   cors: {
