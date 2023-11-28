@@ -12,7 +12,7 @@ app.use(cors());
 
 const io = require ('socket.io') (server, {
   cors: {
-    origin: 'https://react-app-chat-c986801b6d65.herokuapp.com',
+    origin: 'https://fluffy-nasturtium-6d0c81.netlify.app',
     methods: ['GET', 'POST'],
   },
 });
