@@ -10,7 +10,7 @@ app.use(cors());
 const server = http.createServer (app);
 // ###
 
-const io = require ('socket.io') (server, {
+const io = require ('socket.io') (PORT, {
   cors: {
     origin: '*',
     methods: ['GET', 'POST'],
@@ -128,3 +128,6 @@ databaseConnect ();
 server.listen (PORT, () => {
   console.log (`Server is running on port ${PORT}`);
 });
+
+
+
