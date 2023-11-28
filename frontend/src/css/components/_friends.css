@@ -61,7 +61,7 @@
 
 .friends .hover-friend .friend .friend-name-seen .friend-name {
     display: flex;
-    align-items: flex-start;
+    align-items: start;
     justify-content: center;
     flex-direction: column;
 }
