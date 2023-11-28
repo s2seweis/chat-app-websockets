@@ -1,0 +1,4 @@
+[[redirects]]
+  from = "/api/*"
+  to = "https://react-app-chat-c986801b6d65.herokuapp.com/"
+  status = 200
