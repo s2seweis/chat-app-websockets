@@ -230,7 +230,7 @@ const Messenger = () => {
 
   useEffect(
     () => {
-      if (message.length > 0) {
+      if (message?.length > 0) {
         if (
           message[message.length - 1].senderId !== myInfo.id &&
           message[message.length - 1].status !== 'seen'
