@@ -12,8 +12,9 @@ app.use(cors());
 
 const io = require ('socket.io') (server, {
   cors: {
-    origin: 'http://fluffy-nasturtium-6d0c81.netlify.app',
+    origin: '*',
     methods: ['GET', 'POST'],
+    credentials: true
   },
 });
 
