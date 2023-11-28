@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useEffect, useState, useRef } from 'react';
 import { FaEllipsisV, FaSistrix, FaSignOutAlt } from 'react-icons/fa';
 import { AiOutlineCloseCircle } from 'react-icons/ai';

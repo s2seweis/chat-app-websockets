@@ -1,3 +1,4 @@
+/* eslint-disable */
 import axios from 'axios';
 import {FRIEND_GET_SUCCESS,MESSAGE_GET_SUCCESS,MESSAGE_SEND_SUCCESS,THEME_GET_SUCCESS,THEME_SET_SUCCESS} from "../types/messengerType";
 

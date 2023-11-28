@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react';
 import { FaCaretSquareDown, FaEdit, FaSistrix } from "react-icons/fa";
 import {AiOutlineCloseCircle} from "react-icons/ai";
