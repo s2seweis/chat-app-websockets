@@ -4,7 +4,7 @@ import {FRIEND_GET_SUCCESS,MESSAGE_GET_SUCCESS,MESSAGE_SEND_SUCCESS,THEME_GET_SU
 
 export const getFriends = () => async(dispatch) => {
      try{
-          const response = await axios.get('https://react-app-chat-c986801b6d65.herokuapp.com/api/messenger/get-friends');
+          const response = await axios.get('/api/messenger/get-friends');
            dispatch({
                 type: FRIEND_GET_SUCCESS,
                 payload : {
@@ -19,7 +19,7 @@ export const getFriends = () => async(dispatch) => {
 
 export const messageSend = (data) => async(dispatch) => {
     try{
-     const response = await axios.post('https://react-app-chat-c986801b6d65.herokuapp.com/api/messenger/send-message',data);
+     const response = await axios.post('/api/messenger/send-message',data);
      dispatch({
           type : MESSAGE_SEND_SUCCESS,
           payload : {
@@ -35,7 +35,7 @@ export const messageSend = (data) => async(dispatch) => {
 export const getMessage = (id) => {
      return async(dispatch) => {
           try{
-               const response = await axios.get(`https://react-app-chat-c986801b6d65.herokuapp.com/api/messenger/get-message/${id}`)
+               const response = await axios.get(`/api/messenger/get-message/${id}`)
               dispatch({
                    type : MESSAGE_GET_SUCCESS,
                    payload : {
@@ -52,7 +52,7 @@ export const getMessage = (id) => {
 export const ImageMessageSend = (data) => async(dispatch)=>{
 
      try{
-          const response = await axios.post('https://react-app-chat-c986801b6d65.herokuapp.com/api/messenger/image-message-send',data);
+          const response = await axios.post('/api/messenger/image-message-send',data);
           dispatch({
                type: MESSAGE_SEND_SUCCESS,
                payload : {
@@ -68,7 +68,7 @@ export const ImageMessageSend = (data) => async(dispatch)=>{
 
 export const seenMessage = (msg) => async(dispatch)=> {
      try{
-          const response = await axios.post('https://react-app-chat-c986801b6d65.herokuapp.com/api/messenger/seen-message',msg);
+          const response = await axios.post('/api/messenger/seen-message',msg);
           console.log(response.data);
      }catch (error){
           console.log(error.response.message)
@@ -79,7 +79,7 @@ export const seenMessage = (msg) => async(dispatch)=> {
 
 export const updateMessage = (msg) => async(dispatch)=> {
      try{
-          const response = await axios.post('https://react-app-chat-c986801b6d65.herokuapp.com/api/messenger/delivared-message',msg);
+          const response = await axios.post('/api/messenger/delivared-message',msg);
           console.log(response.data);
      }catch (error){
           console.log(error.response.message)
