@@ -49,7 +49,7 @@ const Messenger = () => {
 
   useEffect(() => {
     // socket.current = io('ws://localhost:8000');
-    socket.current = io('ws://localhost:5000');
+    socket.current = io('https://dashboard.heroku.com/apps/react-app-chat/logs');
     socket.current.on('getMessage', data => {
       setSocketMessage(data);
     });
