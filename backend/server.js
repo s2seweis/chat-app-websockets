@@ -17,13 +17,7 @@ const cookieParser = require('cookie-parser');
 const messengerRoute = require('./routes/messengerRoute');
 
 // Set up middleware
-// app.use(cors());
-
-app.use(
-  cors({
-    credentials: true,
-  })
-);
+app.use(cors());
 
 app.use(
   session({
