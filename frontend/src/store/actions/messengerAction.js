@@ -60,21 +60,48 @@ export const messageSend = (data) => async(dispatch) => {
 }
 
 
+// export const getMessage = (id) => {
+//      return async(dispatch) => {
+//           try{
+//                const response = await axios.get(`https://react-app-chat-c986801b6d65.herokuapp.com/api/messenger/get-message/${id}`)
+//               dispatch({
+//                    type : MESSAGE_GET_SUCCESS,
+//                    payload : {
+//                     message : response.data.message
+//                    }
+//               })
+//           }catch (error){
+//                console.log(error.response.data)
+//           }
+//      }
+// }
+
 export const getMessage = (id) => {
-     return async(dispatch) => {
-          try{
-               const response = await axios.get(`https://react-app-chat-c986801b6d65.herokuapp.com/api/messenger/get-message/${id}`)
-              dispatch({
-                   type : MESSAGE_GET_SUCCESS,
-                   payload : {
-                    message : response.data.message
-                   }
-              })
-          }catch (error){
-               console.log(error.response.data)
-          }
-     }
-}
+     return async (dispatch) => {
+       try {
+         const authToken = localStorage.getItem('authToken');
+         console.log("line:1700", authToken);
+   
+         const response = await axios.get(
+           `https://react-app-chat-c986801b6d65.herokuapp.com/api/messenger/get-message/${id}`,
+           {
+             headers: {
+               Authorization: `Bearer ${authToken}`,
+             },
+           }
+         );
+   
+         dispatch({
+           type: MESSAGE_GET_SUCCESS,
+           payload: {
+             message: response.data.message,
+           },
+         });
+       } catch (error) {
+         console.log(error.response.data);
+       }
+     };
+   };
 
 
 export const ImageMessageSend = (data) => async(dispatch)=>{
