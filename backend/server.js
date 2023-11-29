@@ -10,7 +10,7 @@ app.use(cors());
 const server = http.createServer (app);
 // ###
 
-const io = require ('socket.io') (server, {
+const io = require ('socket.io') ('https://react-app-chat-c986801b6d65.herokuapp.com/', {
   cors: {
     origin: '*',
     methods: ['GET', 'POST'],
