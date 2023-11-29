@@ -5,6 +5,7 @@ import {FRIEND_GET_SUCCESS,MESSAGE_GET_SUCCESS,MESSAGE_SEND_SUCCESS,THEME_GET_SU
 export const getFriends = () => async (dispatch) => {
      try {
        const authToken = localStorage.getItem('authToken');
+       console.log("line:1000", authToken);
    
        // Check if authToken exists before making the request
        if (!authToken) {
