@@ -35,7 +35,7 @@ export const messageSend = (data) => async(dispatch) => {
 export const getMessage = (id) => {
      return async(dispatch) => {
           try{
-               const response = await axios.get(`/api/messenger/get-message/${id}`)
+               const response = await axios.get(`https://dashboard.heroku.com/apps/react-app-chat/logs/api/messenger/get-message/${id}`)
               dispatch({
                    type : MESSAGE_GET_SUCCESS,
                    payload : {
