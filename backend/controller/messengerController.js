@@ -157,7 +157,7 @@ module.exports.ImageMessageSend = (req,res) => {
 
           // still need to change the directory
           // const newPath = `../frontend/public/image/${imageName}`;
-          const newPath = `./public/image/${imageName}`;
+          const newPath = `image/${imageName}`;
           files.image.originalFilename = imageName;
 
           try{
