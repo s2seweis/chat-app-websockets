@@ -36,6 +36,7 @@ const getLastMessage = async(myId, fdId) => {
 
 module.exports.getFriends = async (req, res) => {
      const myId = req.myId;
+     console.log("line:600", myId);
      let fnd_msg = [];
      try{
           const friendGet = await User.find({
