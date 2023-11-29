@@ -2,6 +2,7 @@
 
 // module.exports.authMiddleware = async(req,res,next) => {
 //      const {authToken} = req.cookies;
+// const authTokenHeader = req.headers.authorization;
 //      console.log("line:800", authToken);
 //      if(authToken){
 //           const deCodeToken = await jwt.verify(authToken,process.env.SECRET);

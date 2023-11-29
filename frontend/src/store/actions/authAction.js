@@ -11,7 +11,7 @@ export const userRegister = (data) => {
                } 
           }
           try{
-               const response = await axios.post('/api/messenger/user-register',data,config);
+               const response = await axios.post('https://react-app-chat-c986801b6d65.herokuapp.com/api/messenger/user-register',data,config);
                localStorage.setItem('authToken',response.data.token);
 
                dispatch({
@@ -67,7 +67,7 @@ export const userLogin = (data) => {
 
 export const userLogout = () => async(dispatch) => {
      try{
-         const response = await axios.post('/api/messenger/user-logout');
+         const response = await axios.post('https://react-app-chat-c986801b6d65.herokuapp.com/api/messenger/user-logout');
          if(response.data.success){
              localStorage.removeItem('authToken');
              dispatch({
