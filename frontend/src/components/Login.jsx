@@ -11,9 +11,8 @@ const Login = () => {
      const navigate = useNavigate();
 
      const alert = useAlert();
-
+          // myInfo is the Token
      const {loading,authenticate,error,successMessage,myInfo} = useSelector(state=>state.auth);
-
 
      const dispatch = useDispatch();
 

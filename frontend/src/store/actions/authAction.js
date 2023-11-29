@@ -35,7 +35,7 @@ export const userRegister = (data) => {
 }
 
 export const userLogin = (data) => {
-    return async (dispath) => {
+    return async (dispatch) => {
 
         const config = {
             headers: {
@@ -46,7 +46,7 @@ export const userLogin = (data) => {
         try {
             const response = await axios.post('https://react-app-chat-c986801b6d65.herokuapp.com/api/messenger/user-login', data, config);
             localStorage.setItem('authToken', response.data.token);
-            dispath({
+            dispatch({
                 type: USER_LOGIN_SUCCESS,
                 payload: {
                     successMessage: response.data.successMessage,
@@ -54,7 +54,7 @@ export const userLogin = (data) => {
                 }
             })
         } catch (error) {
-            dispath({
+            dispatch({
                 type: USER_LOGIN_FAIL,
                 payload: {
                     error: error.response.data.error.errorMessage
