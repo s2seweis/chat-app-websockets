@@ -155,7 +155,8 @@ module.exports.ImageMessageSend = (req,res) => {
               imageName 
           } = fields;
 
-          const newPath = `../frontend/public/image/${imageName}`;
+          // still need to change the directory
+          const newPath = `https://6567069d6c0f0c00082141f7--fluffy-nasturtium-6d0c81.netlify.app/frontend/public/image/${imageName}`;
           files.image.originalFilename = imageName;
 
           try{
