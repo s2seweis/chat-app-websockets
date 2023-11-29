@@ -13,7 +13,7 @@ export const getFriends = () => async(dispatch) => {
            })
 
      }catch (error){
-          console.log(error.response.data);
+          console.log("LINE:500",error.response.data);
      }
 }
 
