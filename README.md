@@ -123,6 +123,13 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 Happy chatting! 🚀
 
+## CurrentUsers (for testing out the app)
+- Email: sebastian@gmail.com Password: law123
+- Email: andreas@gmail.com Password: law123
+- Email: ywainn@gmail.com Password: law123
+
+### Still need to write a serverless function for handling the file upload, currentliy just locally its working correct
+
 <div align="center">
 <img src="assets/chat-3.png" alt="Example Image">
 </div>
