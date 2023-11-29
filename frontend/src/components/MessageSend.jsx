@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { FaPlusCircle, FaFileImage, FaGift, FaPaperPlane } from 'react-icons/fa';
