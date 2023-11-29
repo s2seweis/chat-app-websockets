@@ -2,20 +2,48 @@
 import axios from 'axios';
 import {FRIEND_GET_SUCCESS,MESSAGE_GET_SUCCESS,MESSAGE_SEND_SUCCESS,THEME_GET_SUCCESS,THEME_SET_SUCCESS} from "../types/messengerType";
 
-export const getFriends = () => async(dispatch) => {
-     try{
-          const response = await axios.get('https://react-app-chat-c986801b6d65.herokuapp.com/api/messenger/get-friends');
-           dispatch({
-                type: FRIEND_GET_SUCCESS,
-                payload : {
-                     friends : response.data.friends,
-                }
-           })
+// export const getFriends = () => async(dispatch) => {
+//      try{
+//           const response = await axios.get('https://react-app-chat-c986801b6d65.herokuapp.com/api/messenger/get-friends');
+//            dispatch({
+//                 type: FRIEND_GET_SUCCESS,
+//                 payload : {
+//                      friends : response.data.friends,
+//                 }
+//            })
 
-     }catch (error){
-          console.log("LINE:500",error.response.data);
+//      }catch (error){
+//           console.log("LINE:500",error.response.data);
+//      }
+// }
+
+export const getFriends = () => async (dispatch) => {
+     try {
+       const authToken = localStorage.getItem('authToken');
+       console.log("line:1200", authToken);
+   
+       // Check if authToken exists before making the request
+       if (!authToken) {
+         // Handle the case where there's no authToken (e.g., redirect to login)
+         return;
+       }
+   
+       const response = await axios.get('https://react-app-chat-c986801b6d65.herokuapp.com/api/messenger/get-friends', {
+         headers: {
+           Authorization: `Bearer ${authToken}`,
+         },
+       });
+   
+       dispatch({
+         type: FRIEND_GET_SUCCESS,
+         payload: {
+           friends: response.data.friends,
+         },
+       });
+     } catch (error) {
+       console.log('LINE:500', error.response.data);
      }
-}
+   };
 
 export const messageSend = (data) => async(dispatch) => {
     try{
