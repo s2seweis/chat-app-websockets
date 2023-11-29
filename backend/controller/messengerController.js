@@ -167,11 +167,11 @@ module.exports.ImageMessageSend = (req,res) => {
           console.log("line:500", newPath);
           files.image.originalFilename = imageName;
           console.log("line:600", files.image.originalFilename);
-          console.log("line:700", files.image.filepath);
+          // console.log("line:700", files.image.filepath);
 
           try{
                fs.copyFile(files.image.filepath, newPath, async (err)=>{
-                    console.log("line:800", err);
+                    // console.log("line:800", err);
                     if(err){
                          res.status(500).json({
                               error : {
