@@ -1,27 +1,22 @@
 /* Navbar.css */
 .navbar {
-    display: flex;
-    background-color: #128c7e;
-    color: white;
-    padding: 10px;
-<<<<<<< HEAD
-    border: 1px solid;
-=======
-    border-top: 1px solid white;
->>>>>>> bad3a1b6da5fcfbc40a82f35ffe222fcd3c640ac
-  }
-  
-  .nav-item {
-    margin-right: 20px;
-    cursor: pointer;
-  }
-  
-  .nav-item:hover {
-    text-decoration: underline;
-  }
+  display: flex;
+  background-color: #128c7e;
+  color: white;
+  padding: 10px;
+  border-top: 1px solid white;
+}
 
-  a{
-    text-decoration: none !important;
-    color: white !important;
-  }
-  
+.nav-item {
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.nav-item:hover {
+  text-decoration: underline;
+}
+
+a{
+  text-decoration: none !important;
+  color: white !important;
+}
