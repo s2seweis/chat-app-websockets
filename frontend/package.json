@@ -12,7 +12,6 @@
     "icons": "^1.0.0",
     "jwt-decode": "^3.1.2",
     "moment": "^2.29.1",
-    "prop-types": "^15.8.1",
     "react": "^17.0.2",
     "react-alert": "^7.0.3",
     "react-alert-template-basic": "^1.0.2",
@@ -34,9 +33,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build --no-warnings",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "lint": "eslint .",
-    "lint:fix": "eslint --fix ."
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
@@ -60,15 +57,8 @@
     "npm": ">=8.19.9 <9.0.0",
     "node": ">=16.19.1 <18.0.0"
   },
-<<<<<<< HEAD
-  "devDependencies": {
-    "eslint": "^8.51.0"
-  },
-  "proxy": "http://localhost:5000/"
-=======
   "proxy": "https://react-app-chat-c986801b6d65.herokuapp.com/",
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
   }
->>>>>>> bad3a1b6da5fcfbc40a82f35ffe222fcd3c640ac
 }
