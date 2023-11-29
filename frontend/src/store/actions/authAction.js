@@ -65,26 +65,52 @@ export const userLogin = (data) => {
     }
 }
 
-export const userLogout = () => async(dispatch) => {
-     try{
-        const authToken = localStorage.getItem('authToken');
-        console.log("line:1500", authToken);
+// export const userLogout = () => async(dispatch) => {
+//      try{
+//         const authToken = localStorage.getItem('authToken');
+//         console.log("line:1500", authToken);
 
-         const response = await axios.post('https://react-app-chat-c986801b6d65.herokuapp.com/api/messenger/user-logout', {
-            headers: {
-                Authorization: `Bearer ${authToken}`,
-              },
-         });
-         if(response.data.success){
-             localStorage.removeItem('authToken');
-             dispatch({
-                 type : 'LOGOUT_SUCCESS'
-             })
-         }
+//          const response = await axios.post('https://react-app-chat-c986801b6d65.herokuapp.com/api/messenger/user-logout', {
+//             headers: {
+//                 Authorization: `Bearer ${authToken}`,
+//               },
+//          });
+//          if(response.data.success){
+//              localStorage.removeItem('authToken');
+//              dispatch({
+//                  type : 'LOGOUT_SUCCESS'
+//              })
+//          }
 
-     }catch (error) {
+//      }catch (error) {
 
-     }
-}
+//      }
+// }
+
+export const userLogout = () => async (dispatch) => {
+    try {
+      const authToken = localStorage.getItem('authToken');
+      console.log("line:1500", authToken);
+  
+      const response = await axios.post(
+        'https://react-app-chat-c986801b6d65.herokuapp.com/api/messenger/user-logout',
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
+        }
+      );
+  
+      if (response.data.success) {
+        localStorage.removeItem('authToken');
+        dispatch({
+          type: 'LOGOUT_SUCCESS',
+        });
+      }
+    } catch (error) {
+      // Handle error
+    }
+  };
 
 
