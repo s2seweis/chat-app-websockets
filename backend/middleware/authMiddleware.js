@@ -20,6 +20,7 @@ const jwt = require('jsonwebtoken');
 
 module.exports.authMiddleware = async (req, res, next) => {
   const authTokenHeader = req.headers.authorization;
+  console.log("line:900", authTokenHeader);
 
   if (authTokenHeader) {
     // Check if the header starts with 'Bearer'
