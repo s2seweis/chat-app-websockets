@@ -27,6 +27,18 @@ app.get('/', (req, res) => {
   res.send('This is from the backend server');
 });
 
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET || 'Super Secret (change it)',
+    resave: true,
+    saveUninitialized: false,
+    cookie: {
+      sameSite: process.env.NODE_ENV === "production" ? 'none' : 'lax', // must be 'none' to enable cross-site delivery
+      secure: process.env.NODE_ENV === "production", // must be true if sameSite='none'
+    }
+  })
+);
+
 // Database connection
 databaseConnect();
 
