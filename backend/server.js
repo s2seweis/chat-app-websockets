@@ -1,89 +1,113 @@
-const express = require ('express');
-const app = express ();
-const dotenv = require ('dotenv');
-const http = require ('http');
-const cors = require("cors");
+const express = require('express');
+const app = express();
+const dotenv = require('dotenv');
+const http = require('http');
+const cors = require('cors');
+const socketIO = require('socket.io');
 
-// ################################################################################
+dotenv.config({
+  path: 'config/config.env',
+});
+
+const databaseConnect = require('./config/database');
+const authRouter = require('./routes/authRoute');
+const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
+const messengerRoute = require('./routes/messengerRoute');
+
+// Set up middleware
 app.use(cors());
-const PORT = process.env.PORT || 5000;
+app.use(bodyParser.json());
+app.use(cookieParser());
+app.use('/api/messenger', authRouter);
+app.use('/api/messenger', messengerRoute);
 
-const server = http.createServer (app);
-// ###
+// Express routes
+app.get('/', (req, res) => {
+  res.send('This is from the backend server');
+});
 
-const io = require ('socket.io') (PORT, {
+// Database connection
+databaseConnect();
+
+// Create HTTP server
+const server = http.createServer(app);
+
+// Create Socket.IO instance attached to the same server
+const io = socketIO(server, {
   cors: {
     origin: '*',
     methods: ['GET', 'POST'],
   },
 });
 
+// Socket.IO event handlers
 let users = [];
 
 const addUser = (userId, socketId, userInfo) => {
-  const checkUser = users.some (u => u.userId === userId);
+  const checkUser = users.some((u) => u.userId === userId);
 
   if (!checkUser) {
-    users.push ({userId, socketId, userInfo});
+    users.push({ userId, socketId, userInfo });
   }
 };
 
-const userRemove = socketId => {
-  users = users.filter (u => u.socketId !== socketId);
+const userRemove = (socketId) => {
+  users = users.filter((u) => u.socketId !== socketId);
 };
 
-const findFriend = id => {
-  return users.find (u => u.userId === id);
+const findFriend = (id) => {
+  return users.find((u) => u.userId === id);
 };
 
-const userLogout = userId => {
-  users = users.filter (u => u.userId !== userId);
+const userLogout = (userId) => {
+  users = users.filter((u) => u.userId !== userId);
 };
 
-io.on ('connection', socket => {
-  console.log ('Socket is connecting...');
-  socket.on ('addUser', (userId, userInfo) => {
-    addUser (userId, socket.id, userInfo);
-    io.emit ('getUser', users);
+io.on('connection', (socket) => {
+  console.log('Socket is connecting...');
+  socket.on('addUser', (userId, userInfo) => {
+    addUser(userId, socket.id, userInfo);
+    io.emit('getUser', users);
 
-    const us = users.filter (u => u.userId !== userId);
+    const us = users.filter((u) => u.userId !== userId);
     const con = 'new_user_add';
     for (var i = 0; i < us.length; i++) {
-      socket.to (us[i].socketId).emit ('new_user_add', con);
+      socket.to(us[i].socketId).emit('new_user_add', con);
     }
   });
-  socket.on ('sendMessage', data => {
-    const user = findFriend (data.reseverId);
+  socket.on('sendMessage', (data) => {
+    const user = findFriend(data.reseverId);
 
     if (user !== undefined) {
-      socket.to (user.socketId).emit ('getMessage', data);
-    }
-  });
-
-  socket.on ('messageSeen', msg => {
-    const user = findFriend (msg.senderId);
-    if (user !== undefined) {
-      socket.to (user.socketId).emit ('msgSeenResponse', msg);
+      socket.to(user.socketId).emit('getMessage', data);
     }
   });
 
-  socket.on ('delivaredMessage', msg => {
-    const user = findFriend (msg.senderId);
+  socket.on('messageSeen', (msg) => {
+    const user = findFriend(msg.senderId);
     if (user !== undefined) {
-      socket.to (user.socketId).emit ('msgDelivaredResponse', msg);
-    }
-  });
-  socket.on ('seen', data => {
-    const user = findFriend (data.senderId);
-    if (user !== undefined) {
-      socket.to (user.socketId).emit ('seenSuccess', data);
+      socket.to(user.socketId).emit('msgSeenResponse', msg);
     }
   });
 
-  socket.on ('typingMessage', data => {
-    const user = findFriend (data.reseverId);
+  socket.on('deliveredMessage', (msg) => {
+    const user = findFriend(msg.senderId);
     if (user !== undefined) {
-      socket.to (user.socketId).emit ('typingMessageGet', {
+      socket.to(user.socketId).emit('msgDeliveredResponse', msg);
+    }
+  });
+  socket.on('seen', (data) => {
+    const user = findFriend(data.senderId);
+    if (user !== undefined) {
+      socket.to(user.socketId).emit('seenSuccess', data);
+    }
+  });
+
+  socket.on('typingMessage', (data) => {
+    const user = findFriend(data.reseverId);
+    if (user !== undefined) {
+      socket.to(user.socketId).emit('typingMessageGet', {
         senderId: data.senderId,
         reseverId: data.reseverId,
         msg: data.msg,
@@ -91,44 +115,20 @@ io.on ('connection', socket => {
     }
   });
 
-  socket.on ('logout', userId => {
-    userLogout (userId);
+  socket.on('logout', (userId) => {
+    userLogout(userId);
   });
 
-  socket.on ('disconnect', () => {
-    console.log ('user is disconnect... ');
-    userRemove (socket.id);
-    io.emit ('getUser', users);
+  socket.on('disconnect', () => {
+    console.log('user is disconnect... ');
+    userRemove(socket.id);
+    io.emit('getUser', users);
   });
 });
 
-// #########################################################################
+const PORT = process.env.PORT || 5000;
 
-const databaseConnect = require ('./config/database');
-const authRouter = require ('./routes/authRoute');
-const bodyParser = require ('body-parser');
-const cookieParser = require ('cookie-parser');
-const messengerRoute = require ('./routes/messengerRoute');
-
-dotenv.config ({
-  path: 'config/config.env',
+// Start the server
+server.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
-
-app.use (bodyParser.json ());
-app.use (cookieParser ());
-app.use ('/api/messenger', authRouter);
-app.use ('/api/messenger', messengerRoute);
-
-
-app.get ('/', (req, res) => {
-  res.send ('This is from backend Sever');
-});
-
-databaseConnect ();
-
-server.listen (PORT, () => {
-  console.log (`Server is running on port ${PORT}`);
-});
-
-
-
