@@ -67,7 +67,14 @@ export const userLogin = (data) => {
 
 export const userLogout = () => async(dispatch) => {
      try{
-         const response = await axios.post('https://react-app-chat-c986801b6d65.herokuapp.com/api/messenger/user-logout');
+        const authToken = localStorage.getItem('authToken');
+        console.log("line:1500", authToken);
+
+         const response = await axios.post('https://react-app-chat-c986801b6d65.herokuapp.com/api/messenger/user-logout', {
+            headers: {
+                Authorization: `Bearer ${authToken}`,
+              },
+         });
          if(response.data.success){
              localStorage.removeItem('authToken');
              dispatch({
