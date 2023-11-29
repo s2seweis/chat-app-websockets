@@ -6,11 +6,12 @@ const cors = require("cors");
 
 // ################################################################################
 app.use(cors());
+const PORT = process.env.PORT || 5000;
 
 const server = http.createServer (app);
 // ###
 
-const io = require ('socket.io') ('https://react-app-chat-c986801b6d65.herokuapp.com/', {
+const io = require ('socket.io') (PORT, {
   cors: {
     origin: '*',
     methods: ['GET', 'POST'],
@@ -118,7 +119,7 @@ app.use (cookieParser ());
 app.use ('/api/messenger', authRouter);
 app.use ('/api/messenger', messengerRoute);
 
-const PORT = process.env.PORT || 5000;
+
 app.get ('/', (req, res) => {
   res.send ('This is from backend Sever');
 });
