@@ -21,7 +21,7 @@ const messengerRoute = require('./routes/messengerRoute');
 
 app.use(
   cors({
-    origin: ['https://6566ed71766c450008ebbf26--fluffy-nasturtium-6d0c81.netlify.app/'],
+    origin: ['https://6566ed71766c450008ebbf26--fluffy-nasturtium-6d0c81.netlify.app'],
     credentials: true,
   })
 );
