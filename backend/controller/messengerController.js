@@ -156,8 +156,9 @@ module.exports.ImageMessageSend = (req,res) => {
           } = fields;
 
           // still need to change the directory
-          // const newPath = `../frontend/public/image/${imageName}`;
-          const newPath = `https://fluffy-nasturtium-6d0c81.netlify.app/image/${imageName}`;
+          // # need to deploy a serverless funtion for handling the image upload
+          const newPath = `../frontend/public/image/${imageName}`;
+          // const newPath = `https://fluffy-nasturtium-6d0c81.netlify.app/image/${imageName}`;
           files.image.originalFilename = imageName;
 
           try{
