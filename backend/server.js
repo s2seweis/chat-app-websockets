@@ -10,7 +10,7 @@ app.use(cors());
 const server = http.createServer (app);
 // ###
 
-const io = require ('socket.io') (PORT, {
+const io = require ('socket.io') (server, {
   cors: {
     origin: '*',
     methods: ['GET', 'POST'],
