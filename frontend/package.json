@@ -6,6 +6,7 @@
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
+    "autoprefixer": "^10.4.16",
     "axios": "^0.25.0",
     "bootstrap": "^5.3.2",
     "icons": "^1.0.0",
@@ -31,7 +32,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build --no-warnings",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint .",
@@ -59,8 +60,15 @@
     "npm": ">=8.19.9 <9.0.0",
     "node": ">=16.19.1 <18.0.0"
   },
+<<<<<<< HEAD
   "devDependencies": {
     "eslint": "^8.51.0"
   },
   "proxy": "http://localhost:5000/"
+=======
+  "proxy": "https://react-app-chat-c986801b6d65.herokuapp.com/",
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
+  }
+>>>>>>> bad3a1b6da5fcfbc40a82f35ffe222fcd3c640ac
 }

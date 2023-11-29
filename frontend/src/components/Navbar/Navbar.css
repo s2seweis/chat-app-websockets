@@ -1,11 +1,14 @@
 /* Navbar.css */
 .navbar {
     display: flex;
-    background-color: #128c7e
-    ;
+    background-color: #128c7e;
     color: white;
     padding: 10px;
+<<<<<<< HEAD
     border: 1px solid;
+=======
+    border-top: 1px solid white;
+>>>>>>> bad3a1b6da5fcfbc40a82f35ffe222fcd3c640ac
   }
   
   .nav-item {

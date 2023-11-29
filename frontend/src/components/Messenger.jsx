@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useEffect, useState, useRef } from 'react';
 import { FaEllipsisV, FaSistrix, FaSignOutAlt } from 'react-icons/fa';
 import { AiOutlineCloseCircle } from 'react-icons/ai';
@@ -48,7 +49,9 @@ const Messenger = () => {
 
   useEffect(() => {
     // socket.current = io('ws://localhost:8000');
-    socket.current = io('ws://localhost:5000');
+    // socket.current = io('ws://localhost:5000');
+    socket.current = io('https://react-app-chat-c986801b6d65.herokuapp.com/');
+
     socket.current.on('getMessage', data => {
       setSocketMessage(data);
     });
@@ -228,7 +231,7 @@ const Messenger = () => {
 
   useEffect(
     () => {
-      if (message.length > 0) {
+      if (message?.length > 0) {
         if (
           message[message.length - 1].senderId !== myInfo.id &&
           message[message.length - 1].status !== 'seen'
@@ -337,7 +340,10 @@ const Messenger = () => {
 
   return (
     <div className={themeMood === 'dark' ? 'messenger theme' : 'messenger'}>
+<<<<<<< HEAD
   
+=======
+>>>>>>> bad3a1b6da5fcfbc40a82f35ffe222fcd3c640ac
       <Toaster
         position={'top-right'}
         reverseOrder={false}
@@ -347,11 +353,19 @@ const Messenger = () => {
           },
         }}
       />
+<<<<<<< HEAD
   
       <div className='row'>
         <input type='checkbox' id='dot2' />
         <div style={{ width: 'fit-content', backgroundColor: '#d7d7d7', position: 'fixed', margin: '50px 0% 0px 60%' }}>
           <div onClick={handleToggleMenu} style={{ margin: 'auto' }} className='icon'>
+=======
+      <div className="row">
+        <input type="checkbox" id="dot2" />
+        <div style={{ width: "fit-content", backgroundColor: "#d9e0e0", position: "fixed", margin: "50px 0% 0px 60%", borderRadius:"15px" }}>
+          <div onClick={handleToggleMenu} style={{ margin: "auto" }} className="icon">
+            {/* <FaEllipsisV /> */}
+>>>>>>> bad3a1b6da5fcfbc40a82f35ffe222fcd3c640ac
           </div>
   
           {isMenuOpen && (
@@ -463,8 +477,13 @@ const Messenger = () => {
             handleButtonClick={handleButtonClick}
             handleToggleMenu={handleToggleMenu}
           />
+<<<<<<< HEAD
           : <div style={{ margin: '25px 25px' }}>Please Select your Friend</div>}
   
+=======
+          : <div style={{margin:"25px 25px", textAlign:"center"}}>Please Select your Friend</div> }
+
+>>>>>>> bad3a1b6da5fcfbc40a82f35ffe222fcd3c640ac
       </div>
   
     </div>

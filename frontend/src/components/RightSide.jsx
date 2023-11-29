@@ -1,5 +1,13 @@
+<<<<<<< HEAD
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+=======
+/* eslint-disable */
+import React, { useEffect, useState, useRef } from 'react';
+import { FaPhoneAlt, FaVideo, FaRocketchat } from 'react-icons/fa';
+import { AiOutlineMenuUnfold, AiOutlineMenuFold } from 'react-icons/ai';
+import { BsFillArrowLeftSquareFill } from 'react-icons/bs';
+>>>>>>> bad3a1b6da5fcfbc40a82f35ffe222fcd3c640ac
 import { VscFileSubmodule } from 'react-icons/vsc';
 import FriendInfo from './FriendInfo';
 import Message from './Message';
@@ -49,8 +57,14 @@ const RightSide = (props) => {
                         : ''}
                     </div>
                     <div className="name">
+<<<<<<< HEAD
                       <h3>Chat with</h3>
                       <h3>{currentfriend.userName} </h3>
+=======
+                      <h3 style={{color:"white"}}>Chat with:</h3>
+                      <h3 style={{color:"white"}}>{currentfriend.userName} </h3>
+
+>>>>>>> bad3a1b6da5fcfbc40a82f35ffe222fcd3c640ac
                     </div>
                   </div>
 

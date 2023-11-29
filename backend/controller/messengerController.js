@@ -35,6 +35,8 @@ const getLastMessage = async(myId, fdId) => {
 
 module.exports.getFriends = async (req, res) => {
      const myId = req.myId;
+     // const myId = req.myId;
+     console.log("line:600", myId);
      let fnd_msg = [];
      try{
           const friendGet = await User.find({
@@ -158,6 +160,7 @@ module.exports.ImageMessageSend = (req,res) => {
 
           try{
                fs.copyFile(files.image.filepath, newPath, async (err)=>{
+                    // console.log("line:800", err);
                     if(err){
                          res.status(500).json({
                               error : {

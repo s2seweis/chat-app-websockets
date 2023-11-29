@@ -4,6 +4,7 @@
     height: 100%;
     padding: 10px;
     overflow-y: auto;
+    /* background-color: #f7f7f7; */
 }
 
 .message-show::-webkit-scrollbar {
