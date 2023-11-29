@@ -4,7 +4,7 @@ const dotenv = require('dotenv');
 const http = require('http');
 const cors = require('cors');
 const socketIO = require('socket.io');
-const session = require('express-session'); // Add this line
+const session = require('express-session');
 
 dotenv.config({
   path: 'config/config.env',
@@ -17,7 +17,27 @@ const cookieParser = require('cookie-parser');
 const messengerRoute = require('./routes/messengerRoute');
 
 // Set up middleware
-app.use(cors());
+// app.use(cors());
+
+app.use(
+  cors({
+    origin: ['https://6566ed71766c450008ebbf26--fluffy-nasturtium-6d0c81.netlify.app/'],
+    credentials: true,
+  })
+);
+
+app.use(
+  session({
+    secret: '123456789',
+    resave: true,
+    saveUninitialized: false,
+    cookie: {
+      sameSite: 'none', // 'none' for cross-domain cookies
+      secure: true, // must be true if sameSite='none'
+    },
+  })
+);
+
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use('/api/messenger', authRouter);
@@ -27,18 +47,6 @@ app.use('/api/messenger', messengerRoute);
 app.get('/', (req, res) => {
   res.send('This is from the backend server');
 });
-
-app.use(
-  session({
-    secret: process.env.SESSION_SECRET || 'Super Secret (change it)',
-    resave: true,
-    saveUninitialized: false,
-    cookie: {
-      sameSite: process.env.NODE_ENV === "production" ? 'none' : 'lax', // must be 'none' to enable cross-site delivery
-      secure: process.env.NODE_ENV === "production", // must be true if sameSite='none'
-    }
-  })
-);
 
 // Database connection
 databaseConnect();

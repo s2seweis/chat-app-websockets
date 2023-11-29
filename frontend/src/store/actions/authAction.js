@@ -40,7 +40,8 @@ export const userLogin = (data) => {
         const config = {
             headers: {
                 'Content-Type': 'application/json'
-            }
+            },
+            withCredentials: true, // Add this line
         }
 
         try {

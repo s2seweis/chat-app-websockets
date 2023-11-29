@@ -4,7 +4,9 @@ import {FRIEND_GET_SUCCESS,MESSAGE_GET_SUCCESS,MESSAGE_SEND_SUCCESS,THEME_GET_SU
 
 export const getFriends = () => async(dispatch) => {
      try{
-          const response = await axios.get('/api/messenger/get-friends');
+          const response = await axios.get('/api/messenger/get-friends', {
+            withCredentials: true, // Add this line
+          } );
            dispatch({
                 type: FRIEND_GET_SUCCESS,
                 payload : {
